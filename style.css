@@ -1,0 +1,65 @@
+body {
+	background-color: rgb(240,240,220);
+	font-family: "Georgia", serif;
+	color: rgb(40,20,20)
+}
+
+h1 {
+	font-family: "Optima", sans-serif;
+	color: rgb(60,30,30)
+}
+
+h2 {
+	font-family: "Optima", sans-serif;
+	color: rgb(60,30,30)
+}
+
+h6 {
+	font-family: "Optima", sans-serif;
+	color: rgb(40,20,20)
+}
+
+a {
+	text-decoration: none;
+	color: rgb(120,60,60);
+}
+
+a:link {
+
+}
+
+a:visited {
+
+}
+
+a:focus {
+	
+}
+
+a:hover {
+   border-bottom: 1px solid;
+}
+
+a:active {
+	
+}
+
+hr { margin: 0em auto; }
+
+.right{
+	float:right;
+}
+
+.left{
+	float:left;
+}
+
+.page {
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 0 15px;
+	font-family: "Georgia", serif;
+	height: 100%;
+	background-color: rgb(240,240,220);
+	color: rgb(40,20,20);
+}
