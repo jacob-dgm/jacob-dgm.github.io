@@ -61,7 +61,7 @@ a:active {
 
 hr { margin: 0em auto; }
 
-img { max-width: 650px; }
+.contain { max-width: 650px; object-fit: contain;}
 
 .right{
 	float:right;
