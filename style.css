@@ -61,6 +61,8 @@ a:active {
 
 hr { margin: 0em auto; }
 
+img { max-width: 650px; }
+
 .right{
 	float:right;
 }
