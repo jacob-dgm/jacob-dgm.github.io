@@ -5,32 +5,32 @@ body {
 }
 
 h1 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(60,30,30)
 }
 
 h2 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(58,29,29)
 }
 
 h3 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(56,28,28)
 }
 
 h4 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(54,27,27)
 }
 
 h5 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(52,26,26)
 }
 
 h6 {
-	font-family: "Optima", sans-serif;
+	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(50,25,25)
 }
 
@@ -59,9 +59,25 @@ a:active {
 	
 }
 
-hr { margin: 0em auto; }
+hr {
+	margin: 0em auto;
+}
 
-.contain { max-width: 650px; object-fit: contain;}
+pre {
+	background-color: rgb(60,45,35);
+	color: rgb(200,190,170);
+	padding: 10px;
+}
+
+samp {
+	font-size: 120%;
+	font-weight: bold;
+	background-color: rgb(220,220,200);
+}
+
+.contain {
+	max-width: 650px; object-fit: contain;
+}
 
 .right{
 	float:right;
