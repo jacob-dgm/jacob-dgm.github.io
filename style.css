@@ -6,32 +6,34 @@ body {
 
 h1 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(60,30,30)
+	color: rgb(60,30,30);
 }
 
 h2 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(58,29,29)
+	color: rgb(58,29,29);
 }
 
 h3 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(56,28,28)
+	color: rgb(56,28,28);
 }
 
 h4 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(54,27,27)
+	color: rgb(54,27,27);
 }
 
 h5 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(52,26,26)
+	color: rgb(52,26,26);
+	font-size: 0.85em;
 }
 
 h6 {
 	font-family: "Optima", "Calibri", sans-serif;
-	color: rgb(50,25,25)
+	color: rgb(50,25,25);
+	font-size: 0.72em;
 }
 
 a {
@@ -95,4 +97,21 @@ samp {
 	height: 100%;
 	background-color: rgb(240,240,220);
 	color: rgb(50,25,25);
+}
+
+.title {
+	margin: 0px;
+}
+
+.subtitle {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.header h6 {
+	margin: 8px;
+}
+
+.footer h6 {
+	margin: 6px 0px 20px;
 }
