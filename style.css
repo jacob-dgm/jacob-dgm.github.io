@@ -38,9 +38,6 @@ a {
 	text-decoration: none;
 	color: rgb(146,73,73);
 }
-a h {
-	
-}
 a:hover, a:focus, a:active {
    border-bottom: 1px solid;
 }
@@ -63,7 +60,10 @@ samp {
 }
 
 .contain {
-	max-width: 650px; object-fit: contain;
+	width: 100%;
+	max-width: 650px;
+	object-fit: contain;
+	padding-right: 15px;
 }
 
 .right{
@@ -74,7 +74,6 @@ samp {
 }
 
 
-
 .title {
 	margin: 0px;
 }
@@ -82,6 +81,7 @@ samp {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+
 
 .header-cont{
 	position: fixed;
@@ -103,6 +103,11 @@ samp {
 	margin: 8px;
 }
 
+
+.hr {
+	height: 0px;
+	border-top: 1px solid rgb(50,25,25);
+}
 
 .content{
 }
