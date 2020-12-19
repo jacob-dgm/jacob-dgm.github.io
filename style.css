@@ -36,7 +36,10 @@ h6 {
 
 a {
 	text-decoration: none;
-	color: rgb(150,75,75);
+	color: rgb(146,73,73);
+}
+a h {
+	
 }
 a:hover, a:focus, a:active {
    border-bottom: 1px solid;
