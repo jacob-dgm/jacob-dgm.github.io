@@ -1,76 +1,58 @@
-body {
-	background-color: rgb(240,240,220);
+.page {
+	max-width: 650px;
+	margin: 0 auto;
+	padding: 0 15px;
 	font-family: "Georgia", serif;
-	color: rgb(50,25,25)
+	height: 100%;
+	background-color: rgb(240,240,220);
+	color: rgb(50,25,25);
 }
 
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Optima", "Candara", sans-serif;	
+}
 h1 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(60,30,30);
 }
-
 h2 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(58,29,29);
 }
-
 h3 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(56,28,28);
 }
-
 h4 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(54,27,27);
 }
-
 h5 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(52,26,26);
 	font-size: 0.85em;
 }
-
 h6 {
-	font-family: "Optima", "Calibri", sans-serif;
 	color: rgb(50,25,25);
 	font-size: 0.75em;
 }
+
 
 a {
 	text-decoration: none;
 	color: rgb(150,75,75);
 }
-
-a:link {
-
-}
-
-a:visited {
-
-}
-
-a:focus {
-	
-}
-
-a:hover {
+a:hover, a:focus, a:active {
    border-bottom: 1px solid;
 }
 
-a:active {
-	
-}
 
 hr {
 	margin: 0em auto;
 }
+
 
 pre {
 	background-color: rgb(60,45,35);
 	color: rgb(200,190,170);
 	padding: 10px;
 }
-
 samp {
 	font-size: 120%;
 	font-weight: bold;
@@ -84,34 +66,63 @@ samp {
 .right{
 	float:right;
 }
-
 .left{
 	float:left;
 }
 
-.page {
-	max-width: 650px;
-	margin: 0 auto;
-	padding: 0 15px;
-	font-family: "Georgia", serif;
-	height: 100%;
-	background-color: rgb(240,240,220);
-	color: rgb(50,25,25);
-}
+
 
 .title {
 	margin: 0px;
 }
-
 .subtitle {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
 
+.header-cont{
+	position: fixed;
+	max-width: 650px;
+	width: 100%;
+	top: 0px;
+	background-color: rgb(240,240,220);
+	overflow: auto;
+}
+.header {
+	position: fixed;
+	margin: 0px;
+	max-width: 650px;
+	width: 96%;
+	background-color: rgb(240,240,220);
+	border-bottom: 1px solid rgb(50,25,25);
+}
 .header h6 {
 	margin: 8px;
 }
 
+
+.content{
+}
+
+
+.postscript{
+	border-top: 1px solid rgb(50,25,25);
+}
+
+
+.dateline{
+	border-top: 1px solid rgb(50,25,25);
+}
+
+.footer-cont{
+}
+.footer {
+	margin: 0px;
+	max-width: 650px;
+	width: 100%;
+	background-color: rgb(240,240,220);
+	border-top: 1px solid rgb(50,25,25);
+}
 .footer h6 {
 	margin: 6px 0px 20px;
 }
