@@ -86,7 +86,7 @@ samp {
 	width: 100%;
 	top: 0px;
 	background-color: rgb(240,240,220);
-	overflow: auto;
+	overflow: hidden;
 }
 .header {
 	position: fixed;
@@ -102,6 +102,12 @@ samp {
 
 
 .content{
+}
+
+
+.table-of-contents{
+	border-top: 1px solid rgb(50,25,25);
+	border-bottom: 1px solid rgb(50,25,25);
 }
 
 
