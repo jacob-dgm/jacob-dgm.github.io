@@ -90,15 +90,16 @@ samp {
 
 .header-cont{
 	position: fixed;
-	max-width: 650px;
 	width: 100%;
 	top: 0px;
+	left: 0px;
 	background-color: rgb(240,240,220);
 	overflow: hidden;
 }
 .header {
-	position: fixed;
-	margin: 0px;
+	position: relative;
+	height: 1.9em;
+	margin: 0px auto;
 	max-width: 650px;
 	width: 96%;
 	background-color: rgb(240,240,220);
