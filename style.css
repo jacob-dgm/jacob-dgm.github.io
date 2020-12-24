@@ -42,6 +42,11 @@ a:hover, a:focus, a:active {
    border-bottom: 1px solid;
 }
 
+/* for images that needn't be underlined when they're interacted with */
+a.no-hover:hover, a.no-hover:focus, a.no:hover:active {
+	border-bottom: none;
+}
+
 
 hr {
 	margin: 0em auto;
