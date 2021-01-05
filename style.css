@@ -115,6 +115,7 @@ samp {
 }
 
 .content{
+	
 }
 
 
@@ -123,6 +124,11 @@ samp {
 	border-bottom: 1px solid rgb(50,25,25);
 }
 
+
+.caption{
+	color: rgb(52,26,26);
+	font-family: "Optima", "Candara", sans-serif;	
+}
 
 .postscript{
 	border-top: 1px solid rgb(50,25,25);
