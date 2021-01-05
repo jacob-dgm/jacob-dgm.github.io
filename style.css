@@ -130,6 +130,11 @@ samp {
 	font-family: "Optima", "Candara", sans-serif;	
 }
 
+
+.img-and-caption{
+	padding-bottom: 12px;
+}
+
 .postscript{
 	border-top: 1px solid rgb(50,25,25);
 }
