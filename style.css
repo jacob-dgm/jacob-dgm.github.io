@@ -64,6 +64,40 @@ samp {
 	background-color: rgb(220,220,200);
 }
 
+
+audio {
+	max-width: 650px;
+	width: 100%;
+	
+}
+
+
+figure {
+	margin: 36px 0;
+}
+
+
+figcaption {
+	color: rgb(52,26,26);
+	font-family: "Optima", "Candara", sans-serif;
+}
+
+
+table, th, td {
+  border: 1px solid rgb(50,25,25);
+  border-collapse: collapse;
+}
+
+table {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+th, td {
+	padding: 1px 4px;
+}
+
+
 .contain {
 	width: 100%;
 	max-width: 650px;
