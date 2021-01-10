@@ -139,7 +139,7 @@ th, td {
 	border-bottom: 1px solid rgb(50,25,25);
 }
 .header h6 {
-	margin: 8px;
+	margin: 8px 0px;
 }
 
 
@@ -149,7 +149,7 @@ th, td {
 }
 
 .content{
-	
+	margin: 2.5em 0;
 }
 
 
@@ -178,16 +178,26 @@ th, td {
 	border-top: 1px solid rgb(50,25,25);
 	font-size: 0.8em;
 }
+.dateline p{
+	margin: 0.7em 0;
+}
 
 .footer-cont{
+	position: fixed;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	background-color: rgb(240,240,220);
+	overflow: hidden;
 }
 .footer {
-	margin: 0px;
+	position: relative;
+	margin: 0px auto;
 	max-width: 650px;
-	width: 100%;
+	width: 96%;
 	background-color: rgb(240,240,220);
 	border-top: 1px solid rgb(50,25,25);
 }
 .footer h6 {
-	margin: 6px 0px 20px;
+	margin: 8px 0px;
 }
