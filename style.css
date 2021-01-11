@@ -68,7 +68,8 @@ samp {
 audio {
 	max-width: 650px;
 	width: 100%;
-	
+	position: relative;
+	z-index: -1;
 }
 
 
@@ -137,6 +138,7 @@ th, td {
 	max-width: 650px;
 	width: 96%;
 	border-bottom: 1px solid rgb(50,25,25);
+	z-index: 1;
 }
 .header h6 {
 	margin: 8px 0px;
