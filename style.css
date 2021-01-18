@@ -69,7 +69,6 @@ audio {
 	max-width: 650px;
 	width: 100%;
 	position: relative;
-	z-index: -1;
 }
 
 
@@ -130,6 +129,7 @@ th, td {
 	left: 0px;
 	background-color: rgb(240,240,220);
 	overflow: hidden;
+	z-index: 1;
 }
 .header {
 	position: relative;
@@ -191,6 +191,7 @@ th, td {
 	left: 0px;
 	background-color: rgb(240,240,220);
 	overflow: hidden;
+	z-index: 1;
 }
 .footer {
 	position: relative;
@@ -199,6 +200,7 @@ th, td {
 	width: 96%;
 	background-color: rgb(240,240,220);
 	border-top: 1px solid rgb(50,25,25);
+	z-index: 1;
 }
 .footer h6 {
 	margin: 8px 0px;
