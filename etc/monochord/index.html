@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Monochord</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/style.css">
+		<style>
+			.gpsCell { text-align: right;}
+			.lpsCell { text-align: left;}
+			.gpsInput { text-align: right;}
+			.fixed { background-color: #D3D3D3;}
+			table, td, tr, th {border:none;}
+		</style>
+	</head>
+	
+	<body class="page">
+		<script src="simpleTones.js"></script>
+		<script src="monochord.js"></script>
+		
+		<table>
+			
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("neteHyperbolaion")'> nete hyperbolaion </button>
+						<input id="neteHyperbolaion" type="text" class="fixed note gpsInput" value="2304" disabled>
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("paraneteHyperbolaion")'> paranete hyperbolaion </button>
+						<input id="paraneteHyperbolaion" type="text" class="upper moveable note gpsInput" value="2592">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("triteHyperbolaion")'> trite hyperbolaion </button>
+						<input id="triteHyperbolaion" type="text" class="lower moveable note gpsInput" value="2916">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("neteDiezeugmenon")'> nete diezeugmenon </button>
+						<input id="neteDiezeugmenon" type="text" class="fixed note gpsInput" value="3072" disabled>
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("paraneteDiezeugmenon")'> paranete diezeugmenon </button>
+						<input id="paraneteDiezeugmenon" type="text" class="upper moveable note gpsInput" value="3456">
+					</td>
+					<td class="lpsCell">
+						<input id="neteSynemmenon" type="text" class="fixed note lpsInput" value="3456" disabled>
+						<button onClick='playNote("neteSynemmenon")'> nete synemmenon </button>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("triteDiezeugmenon")'> trite diezeugmenon </button>
+						<input id="triteDiezeugmenon" type="text" class="lower moveable note gpsInput" value="3888">
+					</td>
+					<td class="lpsCell">
+						<input id="paraneteSynemmenon" type="text" class="upper moveable note lpsInput" value="3888">
+						<button onClick='playNote("paraneteSynemmenon")'> paranete synemmenon </button>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("paramese")'> paramese </button>
+						<input id="paramese" type="text" class="fixed note gpsInput" value="4096" disabled>
+					</td>
+					<td class="lpsCell">
+						<input id="triteSynemmenon" type="text" class="lower moveable note lpsInput" value="4374">
+						<button onClick='playNote("triteSynemmenon")'> trite synemmenon </button>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("mese")'> mese </button>
+						<input id="mese" type="text" class="fixed note gpsInput" value="4608" disabled>
+					</td>
+					<td class="lpsCell">
+						<input id="meseLps" type="text" class="fixed note lpsInput" value="4608" disabled>
+						<button onClick='playNote("mese")'> mese </button>
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("lichanosMeson")'> lichanos meson </button>
+						<input id="lichanosMeson" type="text" class="upper moveable note gpsInput" value="5184">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("parhypateMeson")'> parhypate meson </button>
+						<input id="parhypateMeson" type="text" class="lower moveable note gpsInput" value="5832">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("hypateMeson")'> hypate meson </button>
+						<input id="hypateMeson" type="text" class="fixed note gpsInput" value="6144" disabled>
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("lichanosHypaton")'> lichanos hypaton </button>
+						<input id="lichanosHypaton" type="text" class="upper moveable note gpsInput" value="6918">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("parhypateHypaton")'> parhypate hypaton </button>
+						<input id="parhypateHypaton" type="text" class="lower moveable note gpsInput" value="7776">
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("hypateHypaton")'> hypate hypaton </button>
+						<input id="hypateHypaton" type="text" class="fixed note gpsInput" value="8192" disabled>
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="gpsCell">
+						<button onClick='playNote("proslambanomenos")'> proslambanomenos </button>
+						<input id="proslambanomenos" type="text" class="fixed note gpsInput" value="9216" disabled>
+					</td>
+					<td class="lpsCell">
+					</td>
+				</tr>
+				
+			</tbody>
+			
+		</table>
+		
+		<!-- TO DO: set inputs to update on ENTER -->
+		<br><br>
+	    <input id="setUpper" type="text" value="6918">
+	    <button onClick='changeMoveables(1)'>set lichanos hypaton etc.</button>
+	    <br>
+
+	    <input id="setLower" type="text" value="7776">
+	    <button onClick='changeMoveables(0)'>set parhypate hypaton etc.</button>
+	    <br>
+	    <br>
+
+	    <input id="stringLength" type="text" value="9216">
+	    <button onClick='changeStringLength()'>set length of open string</button>
+		<br>
+
+	    <input id="openPitch" type="text" value="110">
+	    <label for="openPitch">set pitch of open string (Hz)</label>
+		<br>
+
+	    <input id="noteDuration" type="text" value="2">
+	    <label for="noteDuration">set duration of note (seconds)</label>
+		
+		<p>Back to <a href="/etc">jacobdgm.com/etc</a>.<p>
+		
+	</body>
+	
+</html>
