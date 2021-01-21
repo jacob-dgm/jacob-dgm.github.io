@@ -10,7 +10,7 @@ function playNote(noteId) {
     var input = parseFloat(document.getElementById(noteId).value);
 	var openPitch = parseFloat(document.getElementById("openPitch").value);
 	var noteDuration = parseFloat(document.getElementById("noteDuration").value);
-	var stringLength = parseFloat(document.getElementById("stringLength").value);
+	var stringLength = parseFloat(document.getElementById("stringLengthProslambanomenos").value);
     playTone(frequency=(openPitch * stringLength / input), type="triangle", duration=noteDuration)
 }
 
@@ -48,14 +48,32 @@ function changeMoveables(position) {
 	}
 }
 
-function changeStringLength() {
-    var oldProslambanomenos = document.getElementById("proslambanomenos").value;
+function changeStringLengthAtHypateHypaton() {
+    var oldHypateHypaton = document.getElementById("hypateHypaton").value;
     var noteFields = document.getElementsByClassName("note");
     for (var i = 0; i < noteFields.length; i++) {
         document.getElementById(noteFields[i].id).value = (
-            document.getElementById("stringLength").value *
+            document.getElementById("stringLengthHypateHypaton").value *
             document.getElementById(noteFields[i].id).value /
-			oldProslambanomenos
-            )
+			oldHypateHypaton
+            );
+	document.getElementById("setUpper").value = document.getElementById("lichanosHypaton").value;
+	document.getElementById("setLower").value = document.getElementById("parhypateHypaton").value;
+	document.getElementById("stringLengthProslambanomenos").value = document.getElementById("proslambanomenos").value;
+    }
+}
+
+function changeStringLengthAtProslambanomenos() {
+    var oldHypateHypaton = document.getElementById("proslambanomenos").value;
+    var noteFields = document.getElementsByClassName("note");
+    for (var i = 0; i < noteFields.length; i++) {
+        document.getElementById(noteFields[i].id).value = (
+            document.getElementById("stringLengthProslambanomenos").value *
+            document.getElementById(noteFields[i].id).value /
+			oldHypateHypaton
+            );
+	document.getElementById("setUpper").value = document.getElementById("lichanosHypaton").value;
+	document.getElementById("setLower").value = document.getElementById("parhypateHypaton").value;
+	document.getElementById("stringLengthHypateHypaton").value = document.getElementById("hypateHypaton").value;
     }
 }
