@@ -102,6 +102,11 @@ th, td {
 }
 
 
+details {
+	margin: 1em 0;
+}
+
+
 .contain {
 	width: 100%;
 	max-width: 650px;
@@ -174,6 +179,7 @@ th, td {
 .img-and-caption{
 	padding-bottom: 12px;
 }
+
 
 .postscript{
 	border-top: 1px solid rgb(50,25,25);
