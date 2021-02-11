@@ -61,6 +61,7 @@ pre {
 	background-color: rgb(60,45,35);
 	color: rgb(200,190,170);
 	padding: 10px;
+	white-space: pre-wrap;
 }
 samp {
 	font-size: 120%;
