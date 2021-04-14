@@ -57,6 +57,8 @@ with open(inFile, 'r') as input_file:
                     output.append(audioCode())
                 else:
                     output.append(audioCode(figure_args[1]))
+            else:
+                output.append("TODO" + line)
         else:
             output.append(line)
         line = input_file.readline()
