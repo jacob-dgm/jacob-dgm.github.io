@@ -36,6 +36,18 @@ def bothCode(pathname = "TODO"):
               "</figure>")
     return output
 
+def tocCode():
+    output = ("<div class=\"table-of-contents\">\n" +
+			  "<ul>\n" +
+              "<li><a href=\"#TODO\">TODO</a></li>\n" +
+              "<li><a href=\"#TODO\">TODO</a></li>\n" +
+              "<li><a href=\"#TODO\">TODO</a></li>\n" +
+              "<li><a href=\"#TODO\">TODO</a></li>\n" +
+              "<li><a href=\"#final-thoughts\">Final Thoughts</a></li>\n" +
+              "</ul>\n" +
+              "</div>")
+    return output
+
 with open(inFile, 'r') as input_file:
     line = input_file.readline()
     while line:
@@ -57,6 +69,8 @@ with open(inFile, 'r') as input_file:
                     output.append(audioCode())
                 else:
                     output.append(audioCode(figure_args[1]))
+            elif figure_args[0] == "TOC" or "toc":
+                output.append(tocCode())
             else:
                 output.append("TODO" + line)
         else:
