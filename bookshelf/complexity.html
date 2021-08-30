@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Complexity - Bookshelf - Jacob deGroot-Maggetti</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<!-- Have you:
+Linked to this file within bookshelf/index.html ?
+-->
+
+<body class="page">
+	<div class="header-cont">
+		<div class="header">
+			<h6 class="right">
+				<a href="/bookshelf/">Bookshelf</a> – <a href="/">Jacob deGroot-Maggetti</a>
+			</h6>
+		</div>
+	</div>
+
+	<div class="content">
+
+		<h2 class="title">
+			Complexity: A Guided Tour – Melanie Mitchell
+		</h2>
+
+		<p><strong>Thoughts:</strong> Lots of good stuff in this one - somewhat technical at times, but packed with useful concepts and illustrative examples. There were several passages, including chapter 13 and all of Part Two, which, while interesting, seemed a bit disconnected from the rest of the book. I came away from this book with a fuller picture of complexity theory, as well as a handful of ideas for small projects to code up and tinker with.</p>
+	
+		<p>(The notes below are not a summary of the book, but rather raw notes - whatever I thought, at the time, might be worth remembering.)</p>
+
+		<div class="hr"></div>
+
+		<p>Mitchell, Melanie. 2009. <em>Complexity: A Guided Tour</em>. Oxford UP.</p>
+		<h2 id="part-one-background-and-history">Part One: Background and History</h2>
+		<h3 id="chapter-one-what-is-complexity">Chapter One: What is Complexity</h3>
+		<ul>
+			<li>4: <em>complex</em>: from Latin <em>plectere</em>: to weave/entwine</li>
+			<li>9: The behavior of the immune system emerges from the actions of many independent, relatively simple cells that communicate with each other chemically in order to form a signal-processing network</li>
+			<li>12-13: Properties that complex systems share:
+				<ul>
+					<li>They are networks of individual components - the complex behavior of the system as a whole arises from the relatively simple interactions between component parts.</li>
+					<li>They use and produce information/signals, both internally and externally</li>
+					<li>They adapt through learning and/or evolutionary processes
+						<ul>
+							<li>j: note that this isn’t true of nonadaptive complex systems - see note on p13</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>13: Mitchell offers two definitions of “complex system”:
+				<ul>
+					<li>“a system in which large networks of components with no central control and simple rules of operation give rise to complex collective behavior, sophisticated information processing, and adaptation via learning or evolution”</li>
+					<li>“a system that exhibits nontrivial emergent and self-organizing behaviors”</li>
+				</ul>
+			</li>
+			<li>13: Mitchell notes that a distinction is sometimes drawn between <em>complex adaptive systems</em>, where evolution/learning plays a large role, and <em>nonadaptive complex systems</em>, like weather systems. Mitchell’s book mostly addresses the former.</li>
+		</ul>
+		<h3 id="chapter-two-dynamics-chaos-and-prediction">Chapter Two: Dynamics, Chaos and Prediction</h3>
+		<ul>
+			<li>15: a <em>dynamical system</em> is one whose macroscopic characteristics change over time in complex ways. Examples offered: the solar system (position of the planets change over time), a heart, a brain, the stock market, the climate, etc.</li>
+			<li>19: <em>mechanics</em>, the study of motion, has traditionally been divided into <em>kinematics</em>, which describes how things move, and <em>dynamics</em>, which explains why objects follow kinematic laws. Kepler’s observations of the movements of the planets belong to <em>kinematics</em>, while Newton’s laws of motion lay the groundwork for <em>dynamics</em></li>
+			<li>20: Laplace thought that by knowing the precise state of a system, its future (or past) state could be predicted given enough processing power. Heisenberg’s uncertainty principle, discovered in 1927, made it clear that this is impossible in practice, since one can never know the precise position and the precise velocity of a particle at the same time.</li>
+			<li>20: chaotic systems display “sensitive dependence on initial conditions” - tiny changes to starting conditions lead to fundamental unpredictability once enough time has passed.</li>
+			<li>22-23: chaotic systems exhibit <em>nonlinearity</em>: in a linear system, you observe the same behavior whether the system is entire or, say, divided in two. In a non-linear system, however, you would observe different behavior in the intact system vs a divided version of it.
+				<ul>
+					<li>e.g. imagine putting 20 rabbits on a 1km^2 island and watching their population trends, vs putting 10 rabbits on each of two 1km^2 islands. Carrying capacity etc. would affect the overall populations in the two conditions differently, thus it’s a non-linear system</li>
+					<li>reductionism can work in linear systems, but it’s generally not a useful approach when looking at chaotic, non-linear systems</li>
+				</ul>
+			</li>
+			<li>30: sometimes, a system will converge on a single state, or a repeating cycle of states, no matter what the starting conditions. Any such state/cycle is known as an <em>attractor</em></li>
+			<li>32: if a system, no matter the starting conditions, exhibits unpredictable behavior, it is said to have a <em>chaotic attractor</em> or <em>strange attractor</em>
+				<ul>
+					<li>32: within dynamical systems theory, systems are sometimes categorized by whether their attractors are fixed-point, periodic, or chaotic/strange</li>
+				</ul>
+			</li>
+			<li>34: even though it’s difficult/impossible to predict the state of a chaotic system at a specific point in the future, it’s generally easy to describe chaotic systems statistically - e.g. the range of values that could be observed. Many chaotic systems in different domains have similar statistical properties.
+				<ul>
+					<li>36: e.g. Feigenbaum’s constant - too complicated to try to explain here….</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-three-information">Chapter Three: Information</h3>
+		<ul>
+			<li>42: whenever a system does work, energy is converted from one form to another. Always, some portion of this energy is transformed into heat, and can no longer do work. Originally, entropy was defined as the amount of energy lost to heat in this way.
+				<ul>
+					<li>47: this definition of entropy was first proposed by Rudolph Clausius in 1865</li>
+				</ul>
+			</li>
+			<li>46-47: Maxwell’s demon: Charles Bennett showed that it is possible to observe and remember information without increasing entropy. But Rolf Landauer showed that it was the act of <em>erasing</em> memory that necessarily increases entropy. Bennett showed that for Maxwell’s demon to work, it has to erase bits of its memory, producing just as much heat, and increasing the entropy of the system just as much as its sorting efforts decreased the system’s entropy.</li>
+			<li>48: Classical mechanics attempts to explain the behavior of microscopic particles, whereas thermodynamics deals with macroscopic phenomena, such as heat, energy, entropy. Statistical mechanics explains how the properties of macroscopic entities arise statistically from interactions between microscopic entities.
+				<ul>
+					<li>49: Thus thermodynamic laws are not <em>guaranteed</em> to give the right answer, only <em>extremely likely</em> to give the right answer (as long as there are enough particles to average over)</li>
+				</ul>
+			</li>
+			<li>50: Thermodynamics deals with the <em>macrostates</em> of a system. For every macrostate, there are many <em>microstates</em> that produce it.
+				<ul>
+					<li>50-51: Bolzmann noted that some macrostates correspond to a larger number of microstates than other macrostates, and so “an isolated system will more likely be in a more probably macrostate than a less probable one.” “Bolzmann defined the entropy of a macrostate as a function of the number of microstates that could give rise to a macrostate”. As per the second law of thermodynamics, a system will evolve into a macrostate with the highest possible entropy.</li>
+					<li>52: it’s worth noting that Shannon’s definition of information completely ignores the meaning of any message</li>
+					<li>54: Shannon entropy is the same thing as the amount of information contained in a message: it can be thought of as how “surprising” the message is, i.e. the average degree of uncertainty a receiver experiences while waiting to see the next bit of information the source will send.</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-four-computation">Chapter Four: Computation</h3>
+		<ul>
+			<li>57: in Shannon’s narrow sense, information concerns only the predictability of a message source. But in the real world, information is received, combined with other information, and processed to produce results/actions - in other words, computation is done to it.</li>
+			<li>68: in the same way that Heisenberg’s discoveries proved that perfect physical predictions are impossible, Gödel’s and Turing’s discoveries proved that mathematics and computation are similarly limited</li>
+			<li>69: “According to his biographer Hao Wang, while preparing for American citizenship Gödel found a logical inconsistency in the U.S. Constitution, and his friend Albert Einstein had to talk him out of discussing it at length during his official citizenship interview”</li>
+		</ul>
+		<h3 id="chapter-five-evolution">Chapter Five: Evolution</h3>
+		<ul>
+			<li>74: Darwin believed that, “in addition to natural selection, the inheritance of acquired characteristics [i.e. Lamarckism] was one of the mechanisms of evolution.”</li>
+			<li>78: Decades before Darwin and Wallace arrived at the theory of natural selection, scottish Patrick Matthew proposed a similar theory in the appendix of his book <em>On Naval Timber and Arboriculture</em>
+				<ul>
+					<li>Mitchell argues that Darwin, rather than Wallace or Matthew, got most of the credit for discovering natural selection due to the large amount of evidence he provided and the particularly coherent explanation he presented in <em>Origin of Species</em></li>
+				</ul>
+			</li>
+			<li>79: “Entropy decreases… as a result of the work done by natural selection. The energy for this work comes from the ability of individual organisms to metabolize energy from their environments”
+				<ul>
+					<li>j: could a statement like this - that evolution has produced pockets of increasingly low entropy (in ecosystems, individual organisms etc.) over the course of the earth’s history - be used to argue that some forms of life are indeed “more evolved” than others?</li>
+				</ul>
+			</li>
+			<li>80: Darwin believed that organisms’ traits were continuous rather than discrete (as we now know they are, due to genetics)
+				<ul>
+					<li>81: for this reason, Mendel’s results were considered to be opposed to Darwin’s for several decades before the modern synthesis brought the two together. “‘Natura non facit saltum’… was Darwin’s famous dismissal of mutation theory.”</li>
+				</ul>
+			</li>
+			<li>83: the main principles of the Modern Synthesis:
+				<ul>
+					<li>Natural selection is the most important mechanism of evolutionary change/adaptation</li>
+					<li>Evolution is a gradual process, acting on many small variations between individuals. These variations are not biased in a particular direction (contra Lamarck). The sources of this variation are mutation and recombination</li>
+					<li>Macroscale phenomena, e.g. the origin of new species, “can be explained by the microscopic process of gene variation and natural selection”</li>
+				</ul>
+			</li>
+			<li>85: Steven Jay Gould argued that <em>historical contingency</em> plays a role in evolution that is nearly as large as that of natural selection
+				<ul>
+					<li>cf. path dependence</li>
+					<li>86: in effect, he argued that, had starting conditions been a little different (e.g. had plate tectonics played out differently, or the earth hit by space objects at different times), evolution would have followed a very different course
+						<ul>
+							<li>cf. chaotic systems</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>86: in contrast to Dawkins, who argued that the fundamental level of selection is the gene, Gould and others argued that selection works on larger units, including individuals, groups, and perhaps even entire species</li>
+		</ul>
+		<h3 id="chapter-six-genetics-simplified">Chapter Six: Genetics, Simplified</h3>
+		<h3 id="chapter-seven-defining-and-measuring-complexity">Chapter Seven: Defining and Measuring Complexity</h3>
+		<ul>
+			<li>95: in 2001, Seth Lloyd proposed three dimensions along which to measure complexity:
+				<ul>
+					<li>“How hard is it to describe?</li>
+					<li>How hard is it to create?</li>
+					<li>What is its degree of organization?”</li>
+				</ul>
+			</li>
+			<li>96-97: one proposed measure of complexity has been Shannon entropy. However, it’s hard to measure in systems that aren’t simple messages, and random messages, with the highest possible Shannon entropy, are not really complex - they’re just random.</li>
+			<li>98-99: one proposed measure of complexity is <em>algorithmic information content</em> - in other words, how “compressible” a thing is, or how complicated an algorithm would need to be to generate the observed phenomenon. A string with two alternating characters, thus, would have a low complexity, since the algorithm required to generate it would be very simple. A random string would also have a low complexity - there are no repeating patterns that can be used for compression, so the algorithm, again, is very simple.</li>
+			<li>100: another proposed measure: Logical depth.
+				<ul>
+					<li>Charles Bennett: “Logically deep objects… contain internal evidence of having been the result of a long computation or slow-to-simulate dynamical process, and could not plausibly have originated otherwise.”</li>
+					<li>Seth Lloyd: “It is an appealing idea to identify the complexity of a thing with the amount of information processed in the most plausible method of its creation.”</li>
+					<li>this would amount to the shortest (in terms of amount of input and number of internal states) possible Turing machine that would create that output</li>
+				</ul>
+			</li>
+			<li>101: another proposed measure: Thermodynamic depth
+				<ul>
+					<li>“the most plausible scientifically determined sequence of events that lead to th thing itself”</li>
+					<li>e.g. looking at an organism, count how many steps were required for that organism to evolve to its present state</li>
+					<li>difficulty: what counts as a single step? difficult to know how fine-grained to make things when dealing with phenomena in the real world</li>
+				</ul>
+			</li>
+			<li>102: another: computational capacity
+				<ul>
+					<li>Stephen Wolfram has proposed Turing-completeness as a benchmark/threshold for complexity in a system</li>
+				</ul>
+			</li>
+			<li>102: another: statistical complexity
+				<ul>
+					<li>i.e. what’s the minimum amount of information you would need to accurately predict the state of the system in the future</li>
+				</ul>
+			</li>
+			<li>103-108: another: complexity as fractal dimension
+				<ul>
+					<li>fractal dimension can only be approximately quantified for real-world phenomena</li>
+					<li>this would amount to: how much detail is visible when the system is observed at different levels</li>
+				</ul>
+			</li>
+			<li>109-110: another: degree of hierarchy
+				<ul>
+					<li>Herbert Simon proposed that <em>hierarchy</em> and <em>near-decomposability</em> are the most important attributes common to all complex systems
+						<ul>
+							<li>hierarchy: e.g. body composed of organs, organs composed of cells, cells of organelles, organelles of proteins, etc.</li>
+							<li>near-decomposability: there exist many subsystems that have many within-subsystem connections and fewer between-subsystem connections</li>
+						</ul>
+					</li>
+					<li>Daniel McShea has proposed a similar categorization, referring to the degree of <em>nestedness</em> of a system, with each higher level considered more complex</li>
+				</ul>
+			</li>
+		</ul>
+		<h2 id="part-two-life-and-evolution-in-computers">Part Two: Life and Evolution in Computers</h2>
+		<h3 id="chapter-eight-self-reproducing-computer-programs">Chapter Eight: Self-Reproducing Computer Programs</h3>
+		<ul>
+			<li>123: mentioned, wrt John von Neumann’s self-replicating automaton: <em>Theory of Self-Reproducing Automata</em> (book)</li>
+			<li>124: famous article in <em>Wired</em> magazine: “Why the Future Doesn’t Need Us” by Bill Joy - about “possible perils of self-reproducing nano-machines”</li>
+		</ul>
+		<h3 id="chapter-nine-genetic-algorithms">Chapter Nine: Genetic Algorithms</h3>
+		<ul>
+			<li>142: genetic algorithms can be useful for finding new and counterintuitive strategies for solving problems. Conversely, it can be difficult to understand/explain <em>how</em> a particular genetic algorithm is able to solve a problem</li>
+		</ul>
+		<h2 id="part-three-computation-writ-large">Part Three: Computation Writ Large</h2>
+		<h3 id="chapter-ten-cellular-automata-life-and-the-universe">Chapter Ten: Cellular Automata, Life, and the Universe</h3>
+		<ul>
+			<li>145: it can make sense to think of complex systems as performing computations, e.g. an ant colony, in a sense, is running an algorithm when it decides when/where to relocate their nest</li>
+			<li>154: the programming language Mathematica was written by Stephen Wolfram and colleagues, in part to make it easy to explore cellular automata</li>
+			<li>155-156: Wolfram’s 256 elementary, one-dimensional cellular automata. He divided them into four classes:
+				<ul>
+					<li>Class 1: almost all initial configurations converge on the same uniform pattern, e.g. all on</li>
+					<li>Class 2: almost all initial configurations settle into a stable pattern or short cycling between patterns, but the final state depends on the initial configuration</li>
+					<li>Class 3: almost all configurations produce random-looking behavior, though some regular structures are present. e.g. rule 30</li>
+					<li>Class 4: fairly simple localized structures occur, but they interact with each other in complex ways. Mixture of order and randomness. e.g. rule 110 (which happens to be turing complete)</li>
+					<li>j: is there a clear rule for distinguishing between class 4 and class 3?</li>
+				</ul>
+			</li>
+			<li>156-157: Wolfram’s book <em>A New Kind of Science</em>. In it, he argues that since rule 110 is simple, but also turing complete, that the ability to compute must be common throughout nature.
+				<ul>
+					<li>Based on this, he proposes that universal computation represents an upper limit for the complexity of computations in nature, i.e. no natural system/process behaves in a way that is non-computable</li>
+					<li>Thus, he argues that different computations in nature will almost always be “equivalent in sophistication”.</li>
+				</ul>
+			</li>
+			<li>158: “It has been proved that if you could build truly nondigital computers (i.e., that can compute with numbers that have infinitely many decimal places) then you would be able to build such a computer to solve the halting problem.” If such a system were built, it could perform computations more complicated than a turing-complete computer, thus undermining Wolfram’s assertions
+				<ul>
+					<li>j: would quantum computers be able to do this?</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-eleven-computing-with-particles">Chapter Eleven: Computing with Particles</h3>
+		<ul>
+			<li>168: Keith Mott and David Peak have pointed out that stomata on leaves behave like 2D cellular automata, opening and closing based on the states of their neighbours in order to achieve a balance between maximixing CO2 gain and minimizing water loss.</li>
+		</ul>
+		<h3 id="chapter-twelve-information-processing-in-living-systems">Chapter Twelve: Information Processing in Living Systems</h3>
+		<ul>
+			<li>174: The body’s immune system: each lymphocyte has receptors that bond with particles with a unique shape, and the body has an enormous diversity of lymphocytes at any one time. The diversity of receptors is achieved through random shuffling of portions of their genomes. When a lymphocyte binds with a newly-encountered particle (i.e. probably a pathogen), even if this bonding is weak, it will begin dividing, further shuffling its genome. In this way, more lymphocytes that match the novel particle are generated, similar to natural selection but taking place over the course of days.</li>
+			<li>179-180: whereas in a traditional computer with von Neumann architecture (with information stored in particular locations within the computer), in cellular automata, information is stored in the patterns formed between the system’s components.</li>
+			<li>181: in order to solve problems, it appears necessary that a distributed system be both partly random and partly deterministic - randomness to facilitate exploration of the problem space, and determinism to follow promising pathways within the space.</li>
+			<li>182: Douglas Hofstadter’s idea of a “parallel terraced scan”, where many possible pathways are explored at once, while extra resources are allocated to particularly promising pathways of exploration.
+				<ul>
+					<li>You can see this in lymphocytes, which explore many different possibilities for creating well-fitting molecular receptors, and in ant colonies foraging for new/abundant/high-quality food sources</li>
+					<li>j: contra TODOSimler and Hanson, who suggest that ‘fads’ in research are mostly about signalling, does this process not also happen in science, where resources are reallocated to explore promising new discoveries</li>
+				</ul>
+			</li>
+			<li>183: parallel terraced scans work, Mitchell argues, because individual actions are so small, making sure that not many resources are wasted on un-promising leads, and making sure that the system is resilient to noise etc.
+				<ul>
+					<li>j: a PTS strikes a balance, then between a depth-first-plus-heuristic and breadth-first search. Or a bit like a greedy algorithm with lots of added noise</li>
+					<li>j: to what extent might these mechanisms explain TODOThomas Kuhn’s idea of normal science? even when no paradigm is explicitly overturned, a new/promising discovery will lead to a bunch of incremental, ‘normal science’ exploration of the new frontier</li>
+				</ul>
+			</li>
+			<li>183: another way to look at this is as a balance between <em>unfocussed</em> and <em>focussed exploration</em>. In effective problem-solving systems, the balance between these modes of exploration is dynamically adjusted as the system learns more about its environment</li>
+		</ul>
+		<h3 id="chapter-thirteen-how-to-make-analogies-if-you-are-a-computer">Chapter Thirteen: How to Make Analogies (if You Are a Computer)</h3>
+		<ul>
+			<li>187: “analogy-making is the ability to perceive abstract similarity between two things in the face of superficial differences.”</li>
+			<li>191-193: cool examples of analogy making: consider the relationship abc =&gt; abd. What is the analogous relationship to:
+				<ul>
+					<li>ijk? ijl is the simplest and most elegant. But could also be:
+						<ul>
+							<li>ijd (replace rightmost letter with d)</li>
+							<li>ijk (replace each c with d)</li>
+							<li>abd (replace all strings with ‘abd’)</li>
+						</ul>
+					</li>
+					<li>iijjkk? probably iijjll, though it becomes clear we’re maybe dealing with rightmost group, rather than rightmost letter</li>
+					<li>kji? how about lji, due to it’s reverse structure? or how about kjh, replacing rightmost with its predecessor?</li>
+					<li>mrrjjj? how about mrrjjjj, by 123 =&gt; 124.</li>
+					<li>j: one takeaway: there are many possible explanations for patterns (e.g. abc =&gt; abd), and while some are simpler/more elegant than others, there are always other possible explanations, which we shouldn’t discount too soon.</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-fourteen-prospects-of-computer-modelling">Chapter Fourteen: Prospects of Computer Modelling</h3>
+		<ul>
+			<li>211: similar to mathematical (/etc.) models, Mitchell proposes the <em>idea models</em> - simple models that help you understand general concepts without having to deal with the details of specific systems. She proposes several:
+				<ul>
+					<li>Maxwell’s demon, Turing machine, cellular automata, the Koch curve, etc.</li>
+					<li>uses for them: proving that an underlying mechanism is plausible/implausible, explore general mechanisms going on within a complex system, etc.</li>
+					<li>similar to Daniel Dennett’s “intuition pumps” - “thought experiments or computer simulations used to prime one’s intuitions about complex phenomena”</li>
+				</ul>
+			</li>
+			<li>observing similarities between climate negotiations and prisoner’s dilemma simulations, the firm New Energy Finance released a report called “How to save the Planet: Be Nice, Retaliatory, Forgiving, and Clear”</li>
+			<li>Phillip Anderson: “The art of model-building is the exclusion of real but irrelevant parts of the problem, and entails hazards for the builder and the reader. The builder may leave out something genuinely relevant; the reader, armed with too sophisticated an experimental probe or too accurate a computation, <em>may take literally a schematized model whose main aim is to be a demonstration of a possibility</em>” (emph. mine)</li>
+		</ul>
+		<h2 id="part-four-network-thinking">Part Four: Network Thinking</h2>
+		<h3 id="chapter-fifteen-the-science-of-networks">Chapter Fifteen: The Science of Networks</h3>
+		<ul>
+			<li>228: Stanley Milgram’s “six degrees” experiment - most of the letters never made it to their target (of the ones that were delivered, the median number of steps was five)</li>
+			<li>235: the <em>degree</em> of a node is the number of connections leading into or out of it
+				<ul>
+					<li>236: high-degree nodes are often referred to as hubs</li>
+				</ul>
+			</li>
+			<li>236: most networks share common characteristics: they’re clustered, have a skewed degree distribution, and have a hub structure</li>
+			<li>238: some networks have the <em>small-world property</em> - there are relatively few long-distance connections, but in spite of this, the average shortest-path distance between nodes is small</li>
+			<li>244-245: some networks are <em>scale-free</em> - no matter whether you look at the whole distribution, or the top 10%, or the top 0.1%, they display a similar distribution. Scale-free networks have four properties in common:
+				<ul>
+					<li>very few hubs, that have many, many connections</li>
+					<li>the degrees of the nodes in the network range widely</li>
+					<li>subsets of the network are similar to the network as a whole</li>
+					<li>small-world structure</li>
+				</ul>
+			</li>
+			<li>245: scale-free networks are generally resilient: if one node is deleted, it’s really unlikely to affect the overall structure much, because any node chosen at random is likely to have a low degree
+				<ul>
+					<li>on the flip side, if a hub is deleted, it can have big effects</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-sixteen-applying-network-science-to-real-world-networks">Chapter Sixteen: Applying Network Science to Real-World Networks</h3>
+		<ul>
+			<li>248: brains, and subsections of the brain, tend to be scale-free. It’s been hypothesized that scale-freedom allows an optimal balance between energy-efficiency (e.g. specialized processing in specific subareas of the brain) and connectivity/communication between different processing centres</li>
+			<li>252: the <em>preferential attachment</em> hypothesis: scale-free networks arise as since high-degree nodes tend to attract more new links than low-degree nodes</li>
+			<li>254: criticisms of the recent rush to attach the “scale-free network” label to systems:
+				<ul>
+					<li>too many phenomena are described as scale-free - sometimes, phenomena are labelled as scale-free-similar even though there’s not enough evidence to show it’s the case</li>
+					<li>even for truly scale-free networks, there are many possible ways this scale-freedom could have arisen</li>
+					<li>the discoveries of network science are too simplified to apply to real-world systems; there are too many simplifying assumptions made.</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-seventeen-the-mystery-of-scaling">Chapter Seventeen: The Mystery of Scaling</h3>
+		<ul>
+			<li>269: power-law distributions have been found in many, many situations across many domains. Some have suggested that they should be thought of as more “normal” than normal distributions (i.e. bell curves)</li>
+			<li>270: Zipf’s law was discovered when looking at frequency distributions in languages, in particular word frequencies.
+				<ul>
+					<li>270: when ranked by count, a word’s frequency is roughly proportional to 1/(the word’s rank)</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="chapter-eighteen-evolution-complexified">Chapter Eighteen: Evolution, Complexified</h3>
+		<ul>
+			<li>278: gene expression switches play a big role in gene expression. It’s been proposed that, more important than mutations within genes, differences in genetic switches are mostly responsible for the morpohological variation between species.</li>
+			<li>279: cells have complex gene regulatory networks, involving not only functional genes that encode proteins that help the cell function, but also non-functional genes that encode proteins that regulate the expression of functional genes and of each other</li>
+			<li>281: have eyes evolved many times independently, or just once? If you take the PAX6 gene from a mouse (directs the development of eyes), and splice it into a fruit fly in an antenna-coding/wing-coding/etc. part of its genome, it will grow eye-like structures on its antennae/wings/etc., but these eyes will be insect-eye-like and not mouse-eye-like</li>
+			<li>286: mentioned: book by Stuart Kauffman, <em>The Origins of Order</em>, in which he proposes a “fourth law of thermodynamics”, that life has an inherent tendency to become more complex (Mitchell indicates that Kauffman’s ideas are controvertial)</li>
+			<li>287-288: biologists often find themselves in the position of having to argue in favor of Darwinism, even to the exclusion of exploring other complementary processes within evolution, due to the perceived need to stand up against creationists</li>
+		</ul>
+		<h2 id="part-five-conclusion">Part Five: Conclusion</h2>
+		<h3 id="chapter-nineteen-the-past-and-future-of-the-sciences-of-complexity">Chapter Nineteen: The Past and Future of the Sciences of Complexity</h3>
+		<ul>
+			<li>292: book mentioned: John Horgan’s <em>The End of Science</em>, in which he argues that complexity theory, depending as it does on computer modelling, is “fact-free science”, and suggesting that all really important discoveries have already been made</li>
+			<li>296: cybernetics, from the Greek word for “steersman”.</li>
+			<li>297: books mentioned: Norbert Weiner’s <em>Cybernetics</em> and <em>The Human Use of Human Beings</em>, “which attempted to provide a unified overview of the field [of cybernetics] and its relevance in many disciplines.”</li>
+		</ul>
+	
+
+		<div class="dateline">
+			<p>
+				Posted: Aug 30, 2021. Last updated: Aug 30, 2021.
+			</p>
+		</div>
+	</div>
+
+	<div class="footer-cont">
+		<div class="footer">
+			<h6 class="left">
+				<a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+			</h6>
+		</div>
+	</div>
+
+</body>
+</html>
