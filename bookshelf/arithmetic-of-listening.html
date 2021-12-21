@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>The Arithmetic of Listening - Bookshelf - Jacob deGroot-Maggetti</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<!-- Have you:
+Linked to this file within bookshelf/index.html ?
+-->
+
+<body class="page">
+	<div class="header-cont">
+		<div class="header">
+			<h6 class="right">
+				<a href="/bookshelf/">Bookshelf</a> – <a href="/">Jacob deGroot-Maggetti</a>
+			</h6>
+		</div>
+	</div>
+	
+	<div class="content">
+	
+		<h2 class="title">
+			The Arithmetic of Listening: Tuning Theory &amp; History for the Impractical Musician – Kyle Gann
+		</h2>
+	
+		<p><strong>Thoughts:</strong> I read <em>The Arithmetic of Listening</em> for a seminar I sat in on in Winter 2021 on Tuning and Temperament. Its subject matter is quite niche, but for those interested in alternate/extended musical tuning systems, Gann’s book is both mind- and ear-opening.</p>
+		<p>(The notes below are not a summary of the book, but rather raw notes - whatever I thought, at the time, might be worth remembering.)</p>
+	
+		<div class="hr"></div>
+		
+		<p>Gann, Kyle. 2019. <em>The Arithmetic of Listening: Tuning Theory &amp; History for the Impractical Musician</em>. University of Illinois Press.</p>
+		
+		<p>You can listen to audio examples for the book at <a href="https://www.kylegann.com/Arithmetic.html" target ="_blank">https://www.kylegann.com/Arithmetic.html</a>.</p>
+		<h3 id="introduction">Introduction</h3>
+		<ul>
+			<li>3: Gann argues that “tuning is the secret lens through which the history of music falls into focus” - it explains divergences of musical worldview between the West and Africa/Asia, why music was tonal in the 18th and 19th centuries but atonal in the 20th century, and why some musical cultures change rapidly while others remain stable, among other phenomena. j: I’m sure tuning theory casts some light onto issues like these, but I doubt it fully (or even largely) explains any of them</li>
+			<li>4: Books about tuning theory: Owen Jorgensen’s <em>Tuning</em>, Patrizio Barbieri’s <em>Enharmonic</em> (both written by piano tuners), Ross W. Duffin’s <em>How Equal Temperament Ruined Harmony</em></li>
+			<li>5-6: Organizing principle of the book, I think: Gann identifies different “dimensions” along which tuning systems can be organized, each corresponding to a prime-numbered harmonic. He argues that various just and equal temperaments are compromises, worked out to approximate the ratios between the notes found along these dimensions.</li>
+		</ul>
+		<h3 id="the-cosmic-joke">1. The Cosmic Joke</h3>
+		<ul>
+			<li>10: one possible definition of the consonance of an interval is its ability to be expressed as a ratio of small numbers - Gann uses this definition throughout the book
+				<ul>
+					<li>Gann notes that such simple ratios are easier to tune by ear</li>
+				</ul>
+			</li>
+			<li>11: ratios can refer both to an interval of a specific size, and a particular note in a given tonality (i.e. a note that interval above the specified reference pitch)</li>
+			<li>12: Gann states that humans can perceive ~250 pitches per octave</li>
+			<li>15-16: since each whole number has only one prime factorization, notes generated using the powers of one prime factor will never line up with notes generated with another. Gann notes that this gives us an infinity of possible notes, as we explore more and more complex ratios.</li>
+			<li>17-18: to calculate the value of an interval ratio in cents:
+				<ul>
+					<li>divide 1200 by the logarithm of 2, store as a constant</li>
+					<li>take the logarithm of the interval ratio in question</li>
+					<li>multiply by the stored value</li>
+					<li>(this procedure works with the logarithm of any base, so long as you always use the same base)</li>
+				</ul>
+			</li>
+			<li>19: an alternate measuring system: Savarts
+				<ul>
+					<li>take the logarithm (base 10) of the interval, and multiply it by 1000</li>
+					<li>There are about 301 savarts in an octave, and each savart equals about 3.986 cents</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="the-harmonic-series">2. The Harmonic Series</h3>
+		<ul>
+			<li>21: in instruments like pianos (I assume this applies to instruments with plucked/struck strings), the relative loudness of successive harmonics is inverse to its position in the harmonic series: the second harmonic will be 1/2 as loud as the fundamental, the seventh harmonic 1/7 as loud, and so on.</li>
+			<li>22: 18/17 is the closest superparticular approximation of the 12tet semitone.</li>
+			<li>23: a fairly close approximation of the tritone can be found between the 5th and 7th harmonics (i.e. major 3rd and harmonic seventh). European theorists didn’t like to admit ratios with prime factors greater than 5, from the middle ages through the 19th C, which Gann identifies as one of the reasons the tritone was identified as the “devil in music”</li>
+			<li>23: compositions employing the overtones of a single fundamental: La Monte Young’s <em>The Well-Tuned Piano</em>, James Tenney’s <em>Spectral Canon for Conlon Nancarrow</em>, Kyle Gann’s <em>Hyperchromatica</em>. Employing the overtones of several fundamentals successively: compositions of Larry Polansky like <em>B’rey’sheet</em>, of Robert Carl like <em>Infinity Avenue</em></li>
+		</ul>
+		<h3 id="generating-scales">3. Generating Scales</h3>
+		<ul>
+			<li>31: The Ptolemaic Sequence, named by Harry Partch, has the following intervals between successive notes:
+				<ul>
+					<li>C 9/8 D 10/9 E 16/15 F 9/8 G 10/9 A 9/8 B 16/15 C</li>
+				</ul>
+			</li>
+			<li>35: one way of generating the ptolemaic sequence:
+				<ul>
+					<li>start with C</li>
+					<li>tune F, G and D using 3/2 fifths</li>
+					<li>tune A, B and E 5/4 thirds (relative to F, G and C)</li>
+				</ul>
+			</li>
+			<li>36: Pythagorean tuning is a 3-limit tuning: in order to generate pitches, you can use only powers of 2 and 3 (i.e. prime numbers less than or equal to 3)
+				<ul>
+					<li>a system that generates some notes using 5/4 fifths (like the ptolemaic sequence above) is a 5-limit tuning, because you use prime numbers less than or equal to 5 (i.e. 3 and 5, with 2s used to change octaves)</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="interlude-a-ptolemy-and-ancient-greek-parts">Interlude A: Ptolemy and Ancient Greek “Parts”</h3>
+		<ul>
+			<li>43: Stefan Hagel argues that Aristoxenus is one of our best sources for learning about how ancient Greek music actually worked, since he is restricted by fewer <em>a priori</em> assumptions - less likely to twist music as practiced in order to match a system he was arguing for</li>
+		</ul>
+		<h3 id="the-pythagorean-scale">4. The Pythagorean Scale</h3>
+		<ul>
+			<li>51: Sometimes, string players will play sharp accidentals a bit high and flats a bit low for expressive effect. This practice is sometimes called <em>pythagorean intonation</em>, even though it’s not connected with ancient or medieval pythagorean intonation</li>
+		</ul>
+		<h3 id="interlude-b-guillaume-de-machauts-notre-dame-mass">Interlude B: Guillaume de Machaut’s Notre Dame Mass</h3>
+		<h3 id="the-five-limit-the-second-dimension">5. The Five Limit, the Second Dimension</h3>
+		<ul>
+			<li>57: in this chapter, notes that are written with a “+” are one syntonic comma higher, and a “–” sign one syntonic comma lower. This syntonic comma is the difference between E found a 5:4 major third above C and E found four 3:2 fifths above C - same letter name, different pitch.</li>
+		</ul>
+		<h3 id="interlude-c-some-modern-five-limit-notions">Interlude C: Some Modern Five-Limit Notions</h3>
+		<h3 id="meantone-temperament-and-the-primacy-of-thirds">6. Meantone Temperament and the Primacy of Thirds</h3>
+		<ul>
+			<li>67: Tuning and temperament have different meanings. One <em>tunes</em> pitches to whole-number ratios, but <em>tempers</em> pitches to approximate such ratios.</li>
+			<li>69: why “meantone”? the 1/4-comma meantone D is located at the geometric mean between C and E, tuned as a just M3. Also, meantone D is the geometric mean between a 9/8 and 10/9 M2 measured up from C</li>
+			<li>72: 12-note meantone tuning from Eb up to G# has 8 useable major triads (triads with a just M3 and a useable 5th above the root) and 8 useable minor triads (triads with a useable m3 and a useable 5th above the root)</li>
+			<li>73: in meantone, there are two major triads (Bb and Eb) to which an augmented 6th can be added (enharmonic with a m7) - the meantone augmented 6th is a very close approximation of a 7/4 m7, meaning these tetrads are close approximations of a 4:5:6:7 dominant 7th chord and thus quite consonant relative to other dominant 7th chords. E-flat major (key) was thus recognized as being particularly expressive</li>
+			<li>73: in meantone, M3s are tuned justly, but P5s are tempered quite a bit too narrow. This may have helped shape the dictum that triads should always include a 3rd, which helps smooth over the dissonance of the P5.</li>
+			<li>77: one reason meantone works well: each of the perfect fifths needs to be tempered just a little (~4¢) in order to acheive in-tune M3s</li>
+			<li>80-81: various 1/n-comma meantones can be approximated well by various equal temperaments:
+				<ul>
+					<li>1/4-comma meantone is well approximated by 31edo</li>
+					<li>1/3-comma ~ 19edo</li>
+					<li>2/7-comma ~ 50edo</li>
+					<li>1/6-comma ~ 55edo</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="interlude-d-meantone-examples">Interlude D: Meantone Examples</h3>
+		<h3 id="well-temperament-and-key-color">7. Well Temperament and Key Color</h3>
+		<ul>
+			<li>88: well temperaments are necessarily irregular temperaments, because their 5ths vary in size</li>
+			<li>89: the <em>schisma</em>: the difference between a 5:4 M3 and a pythagorean diminished 4th (calculated eight 3:2 fifths down): ~= 1.95¢</li>
+			<li>well-temperaments often involved a stretch of meantone fifths, several pythagorean 5ths, and several fifths tempered between these two extremes.
+				<ul>
+					<li>93: if all the pythagorean 5ths are placed consecutively, and placed roughly opposite the series of meantone 5ths, this causes the size of M3s to vary smoothly around the circle of 5ths.</li>
+				</ul>
+			</li>
+			<li>95: Thomas Young’s 1799 temperament is symmetrical, with four 698 (approx.) ¢ fifths opposite to four 702¢ fifths, separated by a pair of 700¢ fifths at each side. These stretches of fifths are centred on D and Ab, around which a standard 12-note keyboard is itself symmetrical.</li>
+		</ul>
+		<h3 id="interlude-e-bach-beethoven-and-temperament">Interlude E: Bach, Beethoven and Temperament</h3>
+		<h3 id="twelve-step-equal-temperament">8: Twelve-Step Equal Temperament</h3>
+		<ul>
+			<li>103: part of the confusion re: equal vs well temperaments stems from the fact that some 19th-century writers referred to circulating (“well”) temperaments as “equal” temperaments, even if they were not in fact equal</li>
+		</ul>
+		<h3 id="the-seven-limit-and-johnston-notation">9: The Seven Limit and Johnston Notation</h3>
+		<ul>
+			<li>111-112: 36-tone equal temperament provides a pretty good approximation for many seven-limit intervals</li>
+			<li>112: in Johnston notation, a note that has been lowered from a 9/5 minor 7th to a 7/4 minor seventh is labelled with an accidental that looks like a “7”. A note that has been raised by the same interval is labelled with an italic <em>L</em>.</li>
+			<li>114: Ben Johnston has created arrangements of jazz standards using many septimal intervals, which can stand in for blue notes.</li>
+			<li>118: Useful definition of an accidental (within a just-intonation context): “an accidental multiplies the frequency of a note by some fraction”. Ben Johnston extends this concept beyond simple sharps and flats (which multiply a note’s frequency by 25/24 or its inversion), creating accidentals for other ratios.</li>
+		</ul>
+		<h3 id="interlude-f-la-monte-youngs-the-well-tempered-piano">Interlude F: La Monte Young’s <em>The Well-Tempered Piano</em></h3>
+		<h3 id="interlude-g-ben-johnstons-string-quartet-no.-4">Interlude G: Ben Johnston’s String Quartet No. 4</h3>
+		<ul>
+			<li>to do: learn more about this piece! A set of variations on Amazing Grace, following a general trajectory of simple to complex tuning ratios (first 3-limit, then 5-limit…) and simple to complex rhythms.</li>
+		</ul>
+		<h3 id="the-eleven-limit-and-the-fourth-dimension">10: The Eleven Limit and the Fourth Dimension</h3>
+		<ul>
+			<li>139: many 11-generated intervals are closely approximated by notes in 24TET</li>
+		</ul>
+		<h3 id="interlude-h-harry-partch">Interlude H: Harry Partch</h3>
+		<ul>
+			<li>142: Partch worked with two harmonic series: the overtone series (notes derived from which he referred to as belonging to the same “otonality”) and the undertones series (“utonality”)</li>
+			<li>147: Partch sometimes used what he called “tonality flux”: alternating/interlocking triads that relate to each other by small, microtonal voice leading</li>
+		</ul>
+		<h3 id="the-thirteen-limit-and-beyond">The Thirteen Limit and Beyond</h3>
+		<ul>
+			<li>150: to explore: the compositions of Mayumi Tsuda, who “has made the thirteenth harmonic her especial study”</li>
+			<li>151: both the seventeenth and the nineteenth harmonic are closely approximated in 12TET, so “these prime numbers offer fewer thrills for those… looking for exotic-sounding intervals”</li>
+			<li>153: 18/17 offers a very good approximation of a 12TET semitone. Instrument makers would use a succession of 18/17 distances to mark out frets on string instruments.</li>
+			<li>157: Array Notation: useful for specifying intervals related by large (or by many) prime numbers.
+				<ul>
+					<li>Each prime number is assigned a position in an array: [powers of 2, powers of 3, powers of 5, …]. Any interval can be specified by specifying the exponent of each of these prime factors:</li>
+					<li>e.g. a unison is specified as [0, 0, …]</li>
+					<li>e.g. a 3/2 fifth is specified as [-1, 1, 0, 0, …]</li>
+					<li>e.g. a pythagorean ditone is specified as [-4, 4, 0, 0, …]</li>
+					<li>e.g. a JI M3 (5/4 = 5/2^2) is specified as [-2, 0, 1, 0, 0, …]</li>
+					<li>intervals can be combined by simply adding the arrays</li>
+				</ul>
+			</li>
+		</ul>
+		<h3 id="interlude-i-ben-johnstons-string-quartet-no.-7-movement-3">Interlude I: Ben Johnston’s String Quartet No. 7, Movement 3</h3>
+		<h3 id="interlude-j-kyle-ganns-hyperchromatica">Interlude J: Kyle Gann’s <em>Hyperchromatica</em></h3>
+		<h3 id="interlude-k-toby-twinings-chrysalid-requiem">Interlude K: Toby Twining’s <em>Chrysalid Requiem</em></h3>
+		<ul>
+			<li>to do: learn more about <em>Chrysalid Requiem</em>. A cappella, lasts longer than an hour, uses very extended just intonation, usually performed with the performers listening to a synthesizer track in order to get their rhythms/pitches.</li>
+		</ul>
+		<h3 id="chapter-12-non-twelve-divisible-equal-temperaments">Chapter 12: Non-Twelve-Divisible Equal Temperaments</h3>
+		<ul>
+			<li>174: three non-12 equal temperaments have historically been focussed on, due to their ability to closely approximate the JI P5 and M3: 19-edo, 31-edo, and sometimes 53-edo</li>
+			<li>186: composers who did a lot of composing in non-12 edos:
+				<ul>
+					<li>Ivor Darreg - also a prolific essayist</li>
+					<li>Neil Haverstick - wrote lots of music for 19TET and 34-TET guitars</li>
+				</ul>
+			</li>
+			<li>187: some composers/theorists (e.g. Erv Wilson) have taken the fact that diatonic and pentatonic scales have only two step sizes, and used it to generate scales based on other intervals (the diatonic and pentatonic scales are generated using 700¢ fifths)</li>
+			<li>193: to look up: Saggital, an alternate notation created by George Secor and Dave Keenan, which can be adapted to various temperaments. Following the footnote, apparently it’s outlined at saggital.org</li>
+		</ul>
+		<h3 id="interlude-l-nicola-vicentinos-archicembalo">Interlude L: Nicola Vicentino’s Archicembalo</h3>
+		<h3 id="chapter-13-twelve-based-equal-temperaments">Chapter 13: Twelve-Based Equal Temperaments</h3>
+		<h3 id="interlude-m-some-quarter-tone-impressions-hába-ives-wyschnegradsky">Interlude M: Some Quarter-Tone Impressions (Hába, Ives, Wyschnegradsky)</h3>
+		<h3 id="interlude-n-ezra-simss-string-quartet-no.-5">Interlude N: Ezra Sims’s String Quartet No. 5</h3>
+		<h3 id="chapter-14-a-few-numbers-drawn-from-non-western-musics">Chapter 14: A Few Numbers Drawn from Non-Western Musics</h3>
+		<h3 id="chapter-15-brief-miscellaneous-thoughts">Chapter 15: Brief Miscellaneous Thoughts</h3>
+		<ul>
+			<li>241: to check out: the music of David First - “‘His group starts playing consonant drones that you quickly fall in tune with, then five minutes later they’re playing a wildly out-of-tune cacophany, and you can’t remember where the change came.’”</li>
+			<li>242: to check out: the music of Gloria Coates - “She wrote her first string quartet in 1960 entirely in glissandos, exasperating her composition teacher.” Mentioned especially: Symphony No. 4, where the winds and brass, playing a quotation of “When I Am Laid in Earth”, are obscured by glissing strings.</li>
+		</ul>
+	
+		<p></p>
+	
+		<div class="dateline">
+			<p>
+				Posted: Dec 21, 2021. Last updated: Dec 21, 2021.
+			</p>
+		</div>
+	</div>
+	
+	<div class="footer-cont">
+		<div class="footer">
+			<h6 class="left">
+				<a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+			</h6>
+		</div>
+	</div>
+	
+</body>
+</html>
