@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Who Knew: Higher-Order Functions Are Useful! – Blog – Jacob deGroot-Maggetti</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body class="page">
+	<div class="header-cont">
+		<div class="header">
+			<h6 class="right">
+				<a href="/blog">Blog</a> – <a href="/">Jacob deGroot-Maggetti</a>
+			</h6>
+		</div>
+	</div>
+	
+	<div class="content">
+		<h2 class="title">
+			Who Knew: Higher-Order Functions Are Useful!
+		</h2>
+		
+		<p>A higher-order function is a function that takes a function as its input, returns a function as its output, or both. I’ve been aware for a while that higher-order functions exist and seen some examples in tutorials of how they work, but it wasn’t until I started exploring number sequences in Python that it became clear how useful higher-order functions could be.</p>
+		<div class="table-of-contents">
+			<ul>
+				<li>
+					<a href="#exploring-happy-number-sequences">Exploring Happy Number Sequences</a>
+				</li>
+				<li>
+					<a href="#exploring-other-number-sequences---the-naive-approach">Exploring Other Number Sequences - The Naïve Approach</a>
+				</li>
+				<li>
+					<a href="#a-better-way-enter-higher-order-functions">A Better Way: Enter Higher-Order Functions</a>
+				</li>
+			</ul>
+		</div>
+		<h3 id="exploring-happy-number-sequences">Exploring Happy Number Sequences</h3>
+		<p>Here’s the situation that precipitated my epiphany. I had written a few functions to explore <a href="../happy-numbers/">happy numbers</a>, and was starting to think about exploring other similar number sequences. Here’s the code I had:</p>
+<pre><code>def digits(n, base=10):
+    if n == 0:
+        return []
+    else:
+        quotient, remainder = divmod(n, base)
+        return [remainder] + digits(quotient, base)
+
+
+def happy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 2 for x in d])
+
+
+def happy_sequence(n, base=10, max=10_000):
+    seq = [n]
+    while len(seq) &lt; max:
+        n = happy_step(n, base)
+        if n in seq:
+            return seq
+        seq.append(n)
+    raise OverflowError(&#39;maximum sequence length exceed&#39;)
+
+
+def is_happy(n, base=10):
+    seq = happy_sequence(n, base)
+    return seq[-1] == 1
+
+
+def happy_head_cycle(n, base=10):
+    seq = happy_sequence(n, base)
+    cycle_start_val = happy_step(seq[-1])
+    cycle_index = seq.index(cycle_start_val)
+    head = seq[:cycle_index]
+    cycle = seq[cycle_index:]
+    return head, cycle</code></pre>
+		<p><code>digits</code> takes a number and a base and returns a list of the digits of the number in that base (in reversed order). For example, <code>digits(n=137, base=10)</code> returns the digits <code>[7, 3, 1]</code>, representing the 1s, 10s and 100s digits in decimal; <code>digits(n=35, base=2)</code> returns the digits <code>[1, 1, 0, 0, 1]</code>, representing 1x1, 1x2, 0x4, 0x8, and 1x16.</p>
+		<p><code>happy_step</code> returns takes a number, splits it up into its component digits in the given base, squares each digit, adds those squares together, and returns that value. <code>happy_sequence</code> repeats <code>happy_step</code> over and over, keeping track of the numbers it’s seen until it comes across a repeated number, and then returns the list of all the numbers it has come across. <code>is_happy</code> returns <code>True</code> if a given number is happy and <code>False</code> if it isn’t (a number is happy if its sequence ends with 1, and it’s not happy if its sequence ends up in a loop that doesn’t involve 1). <code>happy_head_cycle</code> looks at a number’s sequence and splits it into two lists, the second (the “cycle”) representing the loop that the sequence repeats, and the first (the “head”) representing all the numbers in the sequence before the loop was reached.</p>
+		<p>For example, <code>happy_step(7)</code> returns 49 (7^2 = 49), and <code>happy_step(49)</code> returns 97 (4^2 + 9^2 = 16 + 81 = 97). <code>happy_sequence(7)</code> returns <code>[7, 49, 97, 130, 10, 1]</code>, and <code>is_happy(7)</code> returns <code>True</code> because the last number in 7’s happy sequence is a 1. <code>happy_head_cycle(7)</code> returns <code>([7, 49, 97, 130, 10], [1])</code>: <code>[1]</code> is the cycle (<code>happy_step(1)</code> -&gt; 1), and <code>[7, 49, 97, 130, 10]</code> are all the digits that led to 1.</p>
+		<h3 id="exploring-other-number-sequences---the-naive-approach">Exploring Other Number Sequences - The Naïve Approach</h3>
+		<p>This is all well and good. But what if I want to look at a different sequence - cubing all the digits, say, instead of squaring them. One approach is to copy and paste the code I already have, renaming functions as necessary:</p>
+		<pre><code>def trappy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 3 for x in d])
+
+
+def trappy_sequence(n, base=10, max=10_000):
+    seq = [n]
+    while len(seq) &lt; max:
+        n = trappy_step(n, base) # &lt;---
+        if n in seq:
+            return seq
+        seq.append(n)
+    raise OverflowError(&#39;maximum sequence length exceed&#39;)
+
+
+def is_trappy(n, base=10):
+    seq = happy_sequence(n, base) # &lt;---
+    return seq[-1] == 1</code></pre>
+		<p>…and so on. But compare <code>is_trappy</code> with <code>is_happy</code>: the only difference between the two functions is that I’ve called <code>trappy_sequence</code> instead of <code>happy_sequence</code> (marked with an arrow). This situation of redundancy is even worse for <code>trappy_sequence</code> and <code>happy_sequence</code>: both are eight lines of code, but only difference is in the fourth line, where <code>trappy_step</code> substitutes for <code>happy_step</code>. That’s a lot of repeated code - if I wanted to compare several different ways to generate sequences, it would be tedious to write up all the necessary functions, and heaven help me if I decided I needed to go back and do some refactoring. There must be a better way!</p>
+		<h3 id="a-better-way-enter-higher-order-functions">A Better Way: Enter Higher-Order Functions</h3>
+		<p>Any sequence function I want to use (e.g. <code>happy_sequence</code>, <code>trappy_sequence</code>, and so on) will have a similar form: start a list of numbers we’ve seen, use a step function to generate the next number in the sequence, check whether we’ve encountered a loop, and return the sequence if we have. The only detail that differs between these different flavours of sequence function is the way we step from one item in the sequence to the next. The solution, then, is to create a higher-order function that takes in a step function and spits out a new function that generates sequences based on that step function.</p>
+		<p>For example, I can define a “sequence maker” function that takes a step function as its argument. I define a new function <em>inside</em> the sequence maker, plugging in the appropriate step function (marked with an arrow), and then return the inner function I just created:</p>
+		<pre><code>def sequence_maker(step_function):
+    def sequence_function(n, base=10, max=10_000):
+        seq = [n]
+        while len(seq) &lt; max:
+            n = step_function(n, base) # &lt;---
+            if n in seq:
+                return seq
+            seq.append(n)
+        raise OverflowError(&quot;maximum sequence length exceeded&quot;)
+
+    return sequence_function</code></pre>
+<p>Now all I need to do is define my step function, plug it into <code>sequence_maker</code>, and save the returned function to <code>happy_sequence</code>:</p>
+<pre><code>def happy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 2 for x in d])
+
+happy_sequence = sequence_maker(happy_step)</code></pre>
+<p>And if I want to create a function for generating a new kind of sequence, all I need to do is provide a new step function:</p>
+<pre><code>def trappy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 3 for x in d])
+
+trappy_sequence = sequence_maker(trappy_step)</code></pre>
+		<p>Now let’s put the whole thing together, creating higher-order functions to generate sequence functions, is functions, and head-cycle functions, and then use them to create functions to explore happy numbers and trappy numbers:</p>
+		<pre><code>def digits(n, base=10):
+    if n == 0:
+        return []
+    else:
+        quotient, remainder = divmod(n, base)
+        return [remainder] + digits(quotient, base)
+
+
+##############################
+# the higher-order functions #
+##############################
+
+def sequence_maker(step_function):
+    def sequence_function(n, base=10, max=10_000):
+        seq = [n]
+        while len(seq) &lt; max:
+            n = step_function(n, base)
+            if n in seq:
+                return seq
+            seq.append(n)
+        raise OverflowError(&quot;maximum sequence length exceeded&quot;)
+
+    return sequence_function
+
+
+def is_maker(sequence_function):
+    def is_function(n, base=10):
+        seq = sequence_function(n, base)
+        return seq[-1] == 1
+
+    return is_function
+
+
+def head_cycle_maker(step_function, sequence_function):
+    def head_cycle_function(n, base=10):
+        seq = sequence_function(n, base)
+        cycle_start_val = step_function(seq[-1])
+        cycle_index = seq.index(cycle_start_val)
+        head = seq[:cycle_index]
+        cycle = seq[cycle_index:]
+        return head, cycle
+
+    return head_cycle_function
+
+
+###################################
+# creating happy number functions #
+###################################
+
+def happy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 2 for x in d])
+
+
+happy_sequence = sequence_maker(happy_step)
+is_happy = is_maker(happy_sequence)
+happy_head_cycle = head_cycle_maker(happy_step, happy_sequence)
+
+
+####################################
+# creating trappy number functions #
+####################################
+
+def trappy_step(n, base=10):
+    d = digits(n, base)
+    return sum([x ** 3 for x in d])
+    
+
+trappy_sequence = sequence_maker(trappy_step)
+is_trappy = is_maker(trappy_sequence)
+trappy_head_cycle = head_cycle_maker(trappy_step, trappy_sequence)</code></pre>
+
+	
+		<div class="dateline">
+			<p>
+				Posted: Feb 22, 2022. Last updated: Feb 22, 2022.
+			</p>
+		</div>
+	</div>
+	
+	<div class="footer-cont">
+		<div class="footer">
+			<h6 class="left">
+				<a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+			</h6>
+		</div>
+	</div>
+	
+</body>
+</html>
