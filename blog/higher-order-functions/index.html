@@ -93,7 +93,7 @@ def trappy_sequence(n, base=10, max=10_000):
 
 
 def is_trappy(n, base=10):
-    seq = happy_sequence(n, base) # &lt;---
+    seq = trappy_sequence(n, base) # &lt;---
     return seq[-1] == 1</code></pre>
 		<p>…and so on. But compare <code>is_trappy</code> with <code>is_happy</code>: the only difference between the two functions is that I’ve called <code>trappy_sequence</code> instead of <code>happy_sequence</code> (marked with an arrow). This situation of redundancy is even worse for <code>trappy_sequence</code> and <code>happy_sequence</code>: both are eight lines of code, but only difference is in the fourth line, where <code>trappy_step</code> substitutes for <code>happy_step</code>. That’s a lot of repeated code - if I wanted to compare several different ways to generate sequences, it would be tedious to write up all the necessary functions, and heaven help me if I decided I needed to go back and do some refactoring. There must be a better way!</p>
 		<h3 id="a-better-way-enter-higher-order-functions">A Better Way: Enter Higher-Order Functions</h3>
