@@ -8,7 +8,7 @@ html {
 	padding: 0 15px;
 	font-family: "Georgia", serif;
 	height: 100%;
-	background-color: rgb(240,240,220);
+	background-color: rgb(245,245,224);
 	color: rgb(50,25,25);
 }
 
@@ -40,7 +40,7 @@ h6 {
 
 a {
 	text-decoration: none;
-	color: rgb(146,73,73);
+	color: rgb(148,74,74);
 }
 a:hover, a:focus, a:active {
    border-bottom: 1px solid;
@@ -137,7 +137,7 @@ details {
 	width: 100%;
 	top: 0px;
 	left: 0px;
-	background-color: rgb(240,240,220);
+	background-color: rgb(245,245,224);
 	overflow: hidden;
 	z-index: 1;
 }
@@ -189,7 +189,7 @@ details {
 	width: 100%;
 	bottom: 0px;
 	left: 0px;
-	background-color: rgb(240,240,220);
+	background-color: rgb(245,245,224);
 	overflow: hidden;
 	z-index: 1;
 }
@@ -198,7 +198,7 @@ details {
 	margin: 0px auto;
 	max-width: 650px;
 	width: 96%;
-	background-color: rgb(240,240,220);
+	background-color: rgb(245,245,224);
 	border-top: 1px solid rgb(50,25,25);
 	z-index: 1;
 }
