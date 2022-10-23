@@ -37,6 +37,9 @@ h6 {
 	font-size: 0.75em;
 }
 
+p, li {
+	line-height: 130%;
+}
 
 a {
 	text-decoration: none;
