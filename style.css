@@ -3,13 +3,14 @@ html {
 }
 
 .page {
-	max-width: 650px;
+	max-width: 680px;
 	margin: 0 auto;
 	padding: 0 15px;
 	font-family: "Georgia", serif;
 	height: 100%;
 	background-color: rgb(245,245,224);
 	color: rgb(50,25,25);
+	font-size: 110%;
 }
 
 
@@ -74,7 +75,7 @@ samp {
 
 
 audio {
-	max-width: 650px;
+	max-width: 680px;
 	width: 100%;
 	position: relative;
 }
@@ -113,7 +114,7 @@ details {
 
 .contain {
 	width: 100%;
-	max-width: 650px;
+	max-width: 680px;
 	object-fit: contain;
 	padding-right: 15px;
 }
@@ -148,7 +149,7 @@ details {
 	position: relative;
 	height: 1.9em;
 	margin: 0px auto;
-	max-width: 650px;
+	max-width: 680px;
 	width: 96%;
 	border-bottom: 1px solid rgb(50,25,25);
 	z-index: 1;
@@ -199,7 +200,7 @@ details {
 .footer {
 	position: relative;
 	margin: 0px auto;
-	max-width: 650px;
+	max-width: 680px;
 	width: 96%;
 	background-color: rgb(245,245,224);
 	border-top: 1px solid rgb(50,25,25);
