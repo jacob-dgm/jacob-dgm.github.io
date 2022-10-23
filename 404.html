@@ -5,6 +5,23 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/style.css">
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			let currentUrl = window.location.href;
+			let referrerUrl = document.referrer;
+			
+			let currentUrlSpan = document.getElementById("current-url");
+			let emailAnchor = document.getElementById("email-anchor");
+			
+			currentUrlSpan.innerHTML = ` (${currentUrl})`;
+			if (referrerUrl) {
+				emailAnchor.setAttribute(
+					'href',
+					`mailto:jacob@jacobdgm.com?subject=Broken link on ${referrerUrl} pointing to ${currentUrl}`
+				);
+			};
+		}, false);
+	</script>
 </head>
 
 <body class="page">
@@ -21,7 +38,10 @@
 			Not Found :(
 		</h2>
 		<p>
-			This page doesn't seem to exist...
+			There does not seem to be a page at this URL<span id="current-url"></span>....
+		</p>
+		<p>
+			If you got here by typing the URL manually, check to see that you entered it correctly. If you got here by following a link on another page on this website, that's my bad; please <a href="mailto:jacob@jacobdgm.com?subject=Broken Link on jacobdgm.com" id="email-anchor">let me know</a>, as I'd like to fix it!
 		</p>
 	</div>
 	
