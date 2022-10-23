@@ -11,14 +11,17 @@
 			let referrerUrl = document.referrer;
 			
 			let currentUrlSpan = document.getElementById("current-url");
-			let emailAnchor = document.getElementById("email-anchor");
-			
 			currentUrlSpan.innerHTML = ` (${currentUrl})`;
+			
+			let emailAnchor = document.getElementById("email-anchor");let previousPageSpan = document.getElementById("previous-page-span");
 			if (referrerUrl) {
+				let subject = `Broken link on ${referrerUrl} pointing to ${currentUrl}`;
+				let body = "If you're seeing this, you should be able to just press \"Send\" - all the information necessary for me to fix the bug should already be in the subject line. Thanks for helping me make my website better! -Jacob dGM"
 				emailAnchor.setAttribute(
 					'href',
-					`mailto:jacob@jacobdgm.com?subject=Broken link on ${referrerUrl} pointing to ${currentUrl}`
+					`mailto:jacob@jacobdgm.com?subject=${subject}&body=${body}`
 				);
+				previousPageSpan.innerHTML=`<p>If you'd like, you can <a href="${referrerUrl}">click here to go back</a> to the previous page (${referrerUrl}).</p>`;
 			};
 		}, false);
 	</script>
@@ -41,8 +44,9 @@
 			There does not seem to be a page at this URL<span id="current-url"></span>....
 		</p>
 		<p>
-			If you got here by typing the URL manually, check to see that you entered it correctly. If you got here by following a link on another page on this website, that's my bad; please <a href="mailto:jacob@jacobdgm.com?subject=Broken Link on jacobdgm.com" id="email-anchor">let me know</a>, as I'd like to fix it!
+			If you got here by typing the URL manually, check that you entered it correctly. If you got here by following a link on another page on this website, that's my bad; please <a href="mailto:jacob@jacobdgm.com?subject=Broken Link on jacobdgm.com" id="email-anchor">let me know</a>, as I'd like to fix it!
 		</p>
+		<span id="previous-page-span"></span>
 	</div>
 	
 	<div class="footer-cont">
