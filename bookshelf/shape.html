@@ -1,182 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Shape - Bookshelf - Jacob deGroot-Maggetti</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Shape - Bookshelf - Jacob deGroot-Maggetti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
-
-
 <body class="page">
-	<div class="header-cont">
-		<div class="header">
-			<h6 class="right">
-				<a href="/bookshelf/">Bookshelf</a> – <a href="/">Jacob deGroot-Maggetti</a>
-			</h6>
-		</div>
-	</div>
-	
-	<div class="content">
-	
-		<h2 class="title">
-			Shape: The Hidden Geometry of Information, Biology, Strategy, Democracy, and Everything Else – Jordan Ellenberg
-		</h2>
-		
-		<p><strong>Thoughts:</strong> Quite enjoyed reading this one up until the last few chapters which, while covering interesting subject matter, became a bit plodding (or perhaps it’s just because I’d heard Ellenberg talk about those topics on a <a href="https://www.preposterousuniverse.com/podcast/2021/06/14/151-jordan-ellenberg-on-the-mathematics-of-political-boundaries/" target="_blank">podcast</a> before deciding to read the book). Loved all the small digressions where characters from throughout history are introduced with anecdotes about their lives.</p>
-		
-		<p>(The notes below are not a summary of the book, but rather raw notes - whatever I thought, at the time, might be worth remembering. I read this as an e-book, so page numbers are as they appeared in the app I used, Libby.)</p>
-	
-		<div class="hr"></div>
-	
-		<p>Ellenberg, Jordan. 2021. <em>Shape: The Hidden Geometry of Information, Biology, Strategy, Democracy, and Everything Else</em>. Penguin Press.</p>
-	
-		<h3 id="introduction-where-things-are-and-what-they-look-like">Introduction: Where Things Are and What They Look Like</h3>
-		<h3 id="chapter-1-i-vote-for-euclid">Chapter 1: “I Vote for Euclid”</h3>
-		<ul>
-		<li>25: <em>proposition</em>: “The term Euclid uses for a fact that follows logically from the self-evident axioms, when you simply cannot rationally deny.”</li>
-		<li>31: Ellenberg opines that “the ultimate reason for teaching kids to write a proof is not that the world is full of proofs. It’s that the world is full of <em>non-proofs</em>, and grown-ups need to know the difference.” e.g. chains of opinions, stated assertively, do not amount to a logical proof</li>
-		<li>47: “A good definition is one that sheds light on situations beyond the ones it was devised for.”
-		<ul>
-		<li>e.g. Ellenberg suggests revising the definition of isosceles to “unchanged when flipped over” (i.e. based on symmetry) rather than basing the definition on having two sides of equal length or two angles of equal size. By doing so, we can extend our idea of “isosceles” to shapes that aren’t triangles</li>
-		</ul>
-		</li>
-		</ul>
-		<h3 id="chapter-2-how-many-holes-does-a-straw-have">Chapter 2: How Many Holes Does a Straw Have?</h3>
-		<ul>
-		<li>56: Henri Poincaré “worked on research mathematics exactly four hours per day, from ten in the morning until noon and from five to seven in the evening.” - optimized for unconscious insights, and j: respects limits for how much deep work one can do in a day</li>
-		</ul>
-		<h3 id="chapter-3-giving-the-same-name-to-different-things">Chapter 3: Giving the Same Name to Different Things</h3>
-		<ul>
-		<li>71: congruence: two shapes are congruent if you can “apply a rigid motion to one that makes it coincide with the other” - i.e. translation, rotation and reflection. Much cleaner definition than “all their sides and all their angles agree”
-		<ul>
-		<li>rigid motions are all <em>isometric</em> (Gr. “equal measure”) - that is, they preserve the lengths of all line segments on the plane</li>
-		</ul>
-		</li>
-		<li>72: Poincaré: “Mathematics is the art of giving the same name to different things.” - i.e. well-chosen terms point out how different objects are equivalent in some specific sense.</li>
-		<li>73: invariants: every class of symmetry leaves unchanged certain properties of the objects it acts upon, e.g. the area of any polygon will always remain the same no matter what rigid/isometric transformations are applied to it.</li>
-		</ul>
-		<h3 id="chapter-4-a-fragment-of-the-sphinx">Chapter 4: A Fragment of the Sphinx</h3>
-		<ul>
-		<li>94: Statistics can tell us a lot about random error in polling, but they have less to say about systematic bias in sampling. “A 2018 paper found that actual election results typically deviated from polls about twice as much as the margin of error would suggest.”</li>
-		<li>96: the “law of anti-averages” - multiplying probabilities together only works of those probabilities are probabilistically independent. If a prediction depends on a bunch of smaller events with probabilities that correlate with each other yet are treated as independent, it can lead to skewed probability estimates
-		<ul>
-		<li>(e.g. the 2016 US election, where <em>a bunch</em> of swing states all swung toward Trump)</li>
-		<li>j: cf. the “hot hands fallacy” fallacy</li>
-		</ul>
-		</li>
-		<li>98: Karl Pearson invented the word “sibling” after learning that German had the gender-neutral <em>Geschwister</em> (meaning “brother or sister”)</li>
-		<li>105: the concept of a “random walk” has shown up in a bunch of different subfields of math, and is a topic that has even made it into pop culture, such as Burton Malkiel’s <em>A Random Walk Down Wall Street</em>, which I should really get around to reading.</li>
-		<li>107: “In 1902, Einstein hosted an occasional scholarly discussion society and dinner club, ‘The Olympia Academy’, in his apartment in Bern” - ah! must host something like this myself!</li>
-		<li>119: possible fun thing to code: create a Markov chain the Claude Shannon way: start with two letters, look at the bigram, pick a random spot in a corpus and start searching for that bigram, when you find it add the letter that follows, and repeat
-		<ul>
-		<li>“IN NO IST LAT WHEY CRATICT FROURE BIRS GROCID PONDENOME OF DEMONSTURES OF THE REPTAGIN IS REGOACTIONA OF CRE”</li>
-		</ul>
-		</li>
-		</ul>
-		<h3 id="chapter-5-his-style-was-invincibility">Chapter 5: “His Style Was Invincibility”</h3>
-		<ul>
-		<li>145: to read: Elwyn Berlekamp, John Conway and Richard Guy’s “astonishingly colorful, profound, and idea-rich book” <em>Winning Ways for Your Mathematical Plays</em></li>
-		<li>149: <em>ellipsis</em> Gr. “falling short”</li>
-		<li>154: Ellenberg, noting that different students tend to have different things that make a concept “click”, suggests that math teachers “ought to adopt every teaching strategy they can, and shuffle through them in quick succession. That’s the way to maximize the chance each student at least sometimes feels that their teacher is finally, after so much boring hoo-hah, talking about things in a way that makes sense.”
-		<ul>
-		<li>j: could absolutely be applied in other subjects. As many ways as possible to think about a concept.</li>
-		</ul>
-		</li>
-		<li>165: <em>Vigenère cipher</em> - could be a fun thing to code. Each letter in a message is added to a letter of a message that is shared by the code-writer and code-reader</li>
-		<li>175: Ellenberg notes that a lot of advances in computer processing time come from tree-pruning rather than brute increases in processor speed: “It’s actually just as important to prune away big parts of the data that aren’t relevant to the problem at hand! The fastest computation is the one you don’t do.”</li>
-		</ul>
-		<h3 id="chapter-6-the-mysterious-power-of-trial-and-error">Chapter 6: The Mysterious Power of Trial and Error</h3>
-		<h3 id="chapter-7-artificial-intelligence-as-mountaineering">Chapter 7: Artificial Intelligence as Mountaineering</h3>
-		<h3 id="chapter-8-you-are-your-own-negative-first-cousin-and-other-maps">Chapter 8: You Are Your Own Negative-First Cousin, and Other Maps</h3>
-		<ul>
-		<li>230: <em>isochrone</em>: Map which shows how long it takes to travel from a particular point</li>
-		<li>233: your <em>n</em>th cousins are relatives with whom you share an ancestor n+1 levels up
-		<ul>
-		<li>i.e. you are your own n-1th cousin, your siblings are your 0th cousins, people with whom you share grandparents are first cousins, etc.</li>
-		</ul>
-		</li>
-		<li>237: there exist algorithms for clustering data points, or measuring the distances between different data points, and plotting/projecting them in a lower-dimensional space to approximate these distances (think, for example, a corpus of words labelled with lots of data on the contexts in which each word tends to be found). The more dimensions you allow the algorithm, the better it is able to reflect the distances in its projection. Sometimes, though, you will reach a point where increasing the number of dimensions doesn’t increase the accuracy very much. In this sense, a dataset can have a number of dimensions it “wants” to be in, and it can be really useful to identify that number of dimensions
-		<ul>
-		<li>e.g. imagine a bunch of data points in 3-space that all lie on a plane. You could project all those points into 2D space in a way that reflects their distances accurately - in a situation like this, going from 2-space to 3-space doesn’t lead to an increase in accuracy</li>
-		</ul>
-		</li>
-		</ul>
-		<h3 id="chapter-9-three-years-of-sundays">Chapter 9: Three Years of Sundays</h3>
-		<ul>
-		<li>244: Ellenberg says that math is difficult, and we should communicate this fact to students - first, it could help prevent students from becoming discouraged; second, “We could move toward a classroom are asking a question meant not ‘looking stupid’ but ‘looking like someone who came here to learn something’”</li>
-		</ul>
-		<h3 id="chapter-10-what-happened-today-will-happen-tomorrow">Chapter 10: What Happened Today Will Happen Tomorrow</h3>
-		<ul>
-		<li>269: book about games and the math behind them: Donald Knuth’s <em>Surreal Numbers: How Two Ex-Students Turned On to Pure Math and Found Total Happiness</em> - a “1974 book with [an] extremely 1974 title”</li>
-		<li>272-273: Simpson’s paradox: a situation where if you look at the entire population, you view one trend, but if you look at any sub-population, you see the opposite trend.
-		<ul>
-		<li>e.g. at the time of writing, white people in the US population represented 35 percent of the total number of COVID cases, but 50 percent of the total number of COVID deaths. But looking at any particular age bracket, white people made up a <em>larger</em> proportion of COVID cases than COVID deaths. Explanation: old people in the US are predominantly white, and old people are also more likely to die of COVID</li>
-		<li>“The lesson of Simpson’s paradox isn’t really to tell us which viewpoint to take, but to insist we keep both the parts and the whole in mind at once”</li>
-		</ul>
-		</li>
-		<li>286: some refer to the sequence 1 1 2 3 5 8 13… as the Virahanka sequence, “after the great literary and religious scholar who first computer these numbers, five centuries before Fibonacci”</li>
-		</ul>
-		<h3 id="chapter-11-the-terrible-law-of-increase">Chapter 11: The Terrible Law of Increase</h3>
-		<h3 id="chapter-12-the-smoke-in-the-leaf">Chapter 12: The Smoke in the Leaf</h3>
-		<ul>
-		<li>339: one use of an <em>eigenvalue</em> is as a number that determines the rate of change from one term to the next in a sequence
-		<ul>
-		<li>most systems have more than one eigenvalue. as you progress further and further into the sequence, the largest of the eigenvales becomes more and more impactful on the sequence</li>
-		<li>339-340: e.g. the Fibonacci/Virahanka sequence is governed by two eigenvalues. the larger of the two causes it to increase by the proportion of the golden ration, while the smaller (which alternates back and forth between positive and negative), accounts for the deviations by which the ratios between successive terms miss <em>phi</em></li>
-		</ul>
-		</li>
-		</ul>
-		<h3 id="chapter-13-a-rumple-in-space">Chapter 13: A Rumple in Space</h3>
-		<ul>
-		<li>364: <a href="https://extendny.com/" target="_blank">extendny.com</a> - an alternate coordinate system for the globe where Manhattan’s numbered streets and avenues are extended</li>
-		<li>373: looking at Erdos/Bacon number-like networks in terms of R (average number of connections that a particular node has). if R is even a tiny bit below 1, the collection of nodes doesn’t form a big connected blob, but if R is even slightly above it, a blob does form
-		<ul>
-		<li>j: cf. phase transition!</li>
-		</ul>
-		</li>
-		<li>395: graphs in abstract space tend to be very fast to explore, while graphs representing things in physical space tend to take a lot longer to explore: things that are close in physical space are more likely to be connected, whereas in abstract spaces, that is rarely a requirement</li>
-		</ul>
-		<h3 id="chapter-14-how-math-broke-democracy-and-might-still-save-it">Chapter 14: How Math Broke Democracy (And Might Still Save It)</h3>
-		<ul>
-		<li>413- : there are all sorts of ways to create electoral districts that are not geographic. e.g.:
-		<ul>
-		<li>functional constituencies - all teachers vote for one seat, all scientists vote for another, etc.</li>
-		<li>in Rome, which representative you got to vote for was dictated by your wealth</li>
-		<li>another possibility: age bands</li>
-		</ul>
-		</li>
-		<li>438: a shape’s <em>convex hull</em>: a shape that you get when you fill in all its concavities - imagine tying a string around a 2D shape, or wrapping a 3D shape in saran wrap
-		<ul>
-		<li>strictly speaking, “the union of every line segment joining every pair of points in the shape”</li>
-		</ul>
-		</li>
-		<li>439: possibly to explore coding: a gerrymandering game/program, where you draw districts on a map that tend to lead to certain election results, while stilly satisfing conditions like not having ridiculous shapes
-		<ul>
-		<li>481: hah! there’s already a board game for this: <a href="https://www.calendars.com/shop/mapmaker-the-gerrymandering-game/201900019412" target="_blank">Mapmaker</a></li>
-		</ul>
-		</li>
-		</ul>
-		<h3 id="conclusion-i-prove-a-theorem-and-the-house-expands">Conclusion: I Prove a Theorem and the House Expands</h3>
-		<ul>
-		<li>484: to read: Edwin Abbott’s <em>Flatland</em> (1884)</li>
-		</ul>
-		
-	
-		<div class="dateline">
-			<p>
-				Posted: Jan 14, 2022. Last updated: Jan 14, 2022.
-			</p>
-		</div>
-	</div>
-	
-	<div class="footer-cont">
-		<div class="footer">
-			<h6 class="left">
-				<a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
-			</h6>
-		</div>
-	</div>
-	
+    <div class="header-cont">
+        <div class="header">
+            <h6 class="right">
+                <a href="/bookshelf/">Bookshelf</a> – <a href="/">Jacob deGroot-Maggetti</a>
+            </h6>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="title">
+            Shape: The Hidden Geometry of Information, Biology, Strategy, Democracy, and Everything Else – Jordan Ellenberg
+        </h2>
+        <p><strong>Thoughts:</strong> Quite enjoyed reading this one up until the last few chapters which, while covering interesting subject matter, became a bit plodding (or perhaps it’s just because I’d heard Ellenberg talk about those topics on a <a href="https://www.preposterousuniverse.com/podcast/2021/06/14/151-jordan-ellenberg-on-the-mathematics-of-political-boundaries/" target="_blank">podcast</a> before deciding to read the book). Loved all the small digressions where characters from throughout history are introduced with anecdotes about their lives.</p>
+        <p>(The notes below are not a summary of the book, but rather raw notes - whatever I thought, at the time, might be worth remembering. I read this as an e-book, so page numbers are as they appeared in the app I used, Libby.)</p>
+        <div class="hr"></div>
+        <p>Ellenberg, Jordan. 2021. <em>Shape: The Hidden Geometry of Information, Biology, Strategy, Democracy, and Everything Else</em>. Penguin Press.</p>
+        <h3 id="introduction-where-things-are-and-what-they-look-like">Introduction: Where Things Are and What They Look Like</h3>
+        <h3 id="chapter-1-i-vote-for-euclid">Chapter 1: “I Vote for Euclid”</h3>
+        <ul>
+        <li>25: <em>proposition</em>: “The term Euclid uses for a fact that follows logically from the self-evident axioms, when you simply cannot rationally deny.”</li>
+        <li>31: Ellenberg opines that “the ultimate reason for teaching kids to write a proof is not that the world is full of proofs. It’s that the world is full of <em>non-proofs</em>, and grown-ups need to know the difference.” e.g. chains of opinions, stated assertively, do not amount to a logical proof</li>
+        <li>47: “A good definition is one that sheds light on situations beyond the ones it was devised for.”
+        <ul>
+        <li>e.g. Ellenberg suggests revising the definition of isosceles to “unchanged when flipped over” (i.e. based on symmetry) rather than basing the definition on having two sides of equal length or two angles of equal size. By doing so, we can extend our idea of “isosceles” to shapes that aren’t triangles</li>
+        </ul>
+        </li>
+        </ul>
+        <h3 id="chapter-2-how-many-holes-does-a-straw-have">Chapter 2: How Many Holes Does a Straw Have?</h3>
+        <ul>
+        <li>56: Henri Poincaré “worked on research mathematics exactly four hours per day, from ten in the morning until noon and from five to seven in the evening.” - optimized for unconscious insights, and j: respects limits for how much deep work one can do in a day</li>
+        </ul>
+        <h3 id="chapter-3-giving-the-same-name-to-different-things">Chapter 3: Giving the Same Name to Different Things</h3>
+        <ul>
+        <li>71: congruence: two shapes are congruent if you can “apply a rigid motion to one that makes it coincide with the other” - i.e. translation, rotation and reflection. Much cleaner definition than “all their sides and all their angles agree”
+        <ul>
+        <li>rigid motions are all <em>isometric</em> (Gr. “equal measure”) - that is, they preserve the lengths of all line segments on the plane</li>
+        </ul>
+        </li>
+        <li>72: Poincaré: “Mathematics is the art of giving the same name to different things.” - i.e. well-chosen terms point out how different objects are equivalent in some specific sense.</li>
+        <li>73: invariants: every class of symmetry leaves unchanged certain properties of the objects it acts upon, e.g. the area of any polygon will always remain the same no matter what rigid/isometric transformations are applied to it.</li>
+        </ul>
+        <h3 id="chapter-4-a-fragment-of-the-sphinx">Chapter 4: A Fragment of the Sphinx</h3>
+        <ul>
+        <li>94: Statistics can tell us a lot about random error in polling, but they have less to say about systematic bias in sampling. “A 2018 paper found that actual election results typically deviated from polls about twice as much as the margin of error would suggest.”</li>
+        <li>96: the “law of anti-averages” - multiplying probabilities together only works of those probabilities are probabilistically independent. If a prediction depends on a bunch of smaller events with probabilities that correlate with each other yet are treated as independent, it can lead to skewed probability estimates
+        <ul>
+        <li>(e.g. the 2016 US election, where <em>a bunch</em> of swing states all swung toward Trump)</li>
+        <li>j: cf. the “hot hands fallacy” fallacy</li>
+        </ul>
+        </li>
+        <li>98: Karl Pearson invented the word “sibling” after learning that German had the gender-neutral <em>Geschwister</em> (meaning “brother or sister”)</li>
+        <li>105: the concept of a “random walk” has shown up in a bunch of different subfields of math, and is a topic that has even made it into pop culture, such as Burton Malkiel’s <em>A Random Walk Down Wall Street</em>, which I should really get around to reading.</li>
+        <li>107: “In 1902, Einstein hosted an occasional scholarly discussion society and dinner club, ‘The Olympia Academy’, in his apartment in Bern” - ah! must host something like this myself!</li>
+        <li>119: possible fun thing to code: create a Markov chain the Claude Shannon way: start with two letters, look at the bigram, pick a random spot in a corpus and start searching for that bigram, when you find it add the letter that follows, and repeat
+        <ul>
+        <li>“IN NO IST LAT WHEY CRATICT FROURE BIRS GROCID PONDENOME OF DEMONSTURES OF THE REPTAGIN IS REGOACTIONA OF CRE”</li>
+        </ul>
+        </li>
+        </ul>
+        <h3 id="chapter-5-his-style-was-invincibility">Chapter 5: “His Style Was Invincibility”</h3>
+        <ul>
+        <li>145: to read: Elwyn Berlekamp, John Conway and Richard Guy’s “astonishingly colorful, profound, and idea-rich book” <em>Winning Ways for Your Mathematical Plays</em></li>
+        <li>149: <em>ellipsis</em> Gr. “falling short”</li>
+        <li>154: Ellenberg, noting that different students tend to have different things that make a concept “click”, suggests that math teachers “ought to adopt every teaching strategy they can, and shuffle through them in quick succession. That’s the way to maximize the chance each student at least sometimes feels that their teacher is finally, after so much boring hoo-hah, talking about things in a way that makes sense.”
+        <ul>
+        <li>j: could absolutely be applied in other subjects. As many ways as possible to think about a concept.</li>
+        </ul>
+        </li>
+        <li>165: <em>Vigenère cipher</em> - could be a fun thing to code. Each letter in a message is added to a letter of a message that is shared by the code-writer and code-reader</li>
+        <li>175: Ellenberg notes that a lot of advances in computer processing time come from tree-pruning rather than brute increases in processor speed: “It’s actually just as important to prune away big parts of the data that aren’t relevant to the problem at hand! The fastest computation is the one you don’t do.”</li>
+        </ul>
+        <h3 id="chapter-6-the-mysterious-power-of-trial-and-error">Chapter 6: The Mysterious Power of Trial and Error</h3>
+        <h3 id="chapter-7-artificial-intelligence-as-mountaineering">Chapter 7: Artificial Intelligence as Mountaineering</h3>
+        <h3 id="chapter-8-you-are-your-own-negative-first-cousin-and-other-maps">Chapter 8: You Are Your Own Negative-First Cousin, and Other Maps</h3>
+        <ul>
+        <li>230: <em>isochrone</em>: Map which shows how long it takes to travel from a particular point</li>
+        <li>233: your <em>n</em>th cousins are relatives with whom you share an ancestor n+1 levels up
+        <ul>
+        <li>i.e. you are your own n-1th cousin, your siblings are your 0th cousins, people with whom you share grandparents are first cousins, etc.</li>
+        </ul>
+        </li>
+        <li>237: there exist algorithms for clustering data points, or measuring the distances between different data points, and plotting/projecting them in a lower-dimensional space to approximate these distances (think, for example, a corpus of words labelled with lots of data on the contexts in which each word tends to be found). The more dimensions you allow the algorithm, the better it is able to reflect the distances in its projection. Sometimes, though, you will reach a point where increasing the number of dimensions doesn’t increase the accuracy very much. In this sense, a dataset can have a number of dimensions it “wants” to be in, and it can be really useful to identify that number of dimensions
+        <ul>
+        <li>e.g. imagine a bunch of data points in 3-space that all lie on a plane. You could project all those points into 2D space in a way that reflects their distances accurately - in a situation like this, going from 2-space to 3-space doesn’t lead to an increase in accuracy</li>
+        </ul>
+        </li>
+        </ul>
+        <h3 id="chapter-9-three-years-of-sundays">Chapter 9: Three Years of Sundays</h3>
+        <ul>
+        <li>244: Ellenberg says that math is difficult, and we should communicate this fact to students - first, it could help prevent students from becoming discouraged; second, “We could move toward a classroom are asking a question meant not ‘looking stupid’ but ‘looking like someone who came here to learn something’”</li>
+        </ul>
+        <h3 id="chapter-10-what-happened-today-will-happen-tomorrow">Chapter 10: What Happened Today Will Happen Tomorrow</h3>
+        <ul>
+        <li>269: book about games and the math behind them: Donald Knuth’s <em>Surreal Numbers: How Two Ex-Students Turned On to Pure Math and Found Total Happiness</em> - a “1974 book with [an] extremely 1974 title”</li>
+        <li>272-273: Simpson’s paradox: a situation where if you look at the entire population, you view one trend, but if you look at any sub-population, you see the opposite trend.
+        <ul>
+        <li>e.g. at the time of writing, white people in the US population represented 35 percent of the total number of COVID cases, but 50 percent of the total number of COVID deaths. But looking at any particular age bracket, white people made up a <em>larger</em> proportion of COVID cases than COVID deaths. Explanation: old people in the US are predominantly white, and old people are also more likely to die of COVID</li>
+        <li>“The lesson of Simpson’s paradox isn’t really to tell us which viewpoint to take, but to insist we keep both the parts and the whole in mind at once”</li>
+        </ul>
+        </li>
+        <li>286: some refer to the sequence 1 1 2 3 5 8 13… as the Virahanka sequence, “after the great literary and religious scholar who first computer these numbers, five centuries before Fibonacci”</li>
+        </ul>
+        <h3 id="chapter-11-the-terrible-law-of-increase">Chapter 11: The Terrible Law of Increase</h3>
+        <h3 id="chapter-12-the-smoke-in-the-leaf">Chapter 12: The Smoke in the Leaf</h3>
+        <ul>
+        <li>339: one use of an <em>eigenvalue</em> is as a number that determines the rate of change from one term to the next in a sequence
+        <ul>
+        <li>most systems have more than one eigenvalue. as you progress further and further into the sequence, the largest of the eigenvales becomes more and more impactful on the sequence</li>
+        <li>339-340: e.g. the Fibonacci/Virahanka sequence is governed by two eigenvalues. the larger of the two causes it to increase by the proportion of the golden ration, while the smaller (which alternates back and forth between positive and negative), accounts for the deviations by which the ratios between successive terms miss <em>phi</em></li>
+        </ul>
+        </li>
+        </ul>
+        <h3 id="chapter-13-a-rumple-in-space">Chapter 13: A Rumple in Space</h3>
+        <ul>
+        <li>364: <a href="https://extendny.com/" target="_blank">extendny.com</a> - an alternate coordinate system for the globe where Manhattan’s numbered streets and avenues are extended</li>
+        <li>373: looking at Erdos/Bacon number-like networks in terms of R (average number of connections that a particular node has). if R is even a tiny bit below 1, the collection of nodes doesn’t form a big connected blob, but if R is even slightly above it, a blob does form
+        <ul>
+        <li>j: cf. phase transition!</li>
+        </ul>
+        </li>
+        <li>395: graphs in abstract space tend to be very fast to explore, while graphs representing things in physical space tend to take a lot longer to explore: things that are close in physical space are more likely to be connected, whereas in abstract spaces, that is rarely a requirement</li>
+        </ul>
+        <h3 id="chapter-14-how-math-broke-democracy-and-might-still-save-it">Chapter 14: How Math Broke Democracy (And Might Still Save It)</h3>
+        <ul>
+        <li>413- : there are all sorts of ways to create electoral districts that are not geographic. e.g.:
+        <ul>
+        <li>functional constituencies - all teachers vote for one seat, all scientists vote for another, etc.</li>
+        <li>in Rome, which representative you got to vote for was dictated by your wealth</li>
+        <li>another possibility: age bands</li>
+        </ul>
+        </li>
+        <li>438: a shape’s <em>convex hull</em>: a shape that you get when you fill in all its concavities - imagine tying a string around a 2D shape, or wrapping a 3D shape in saran wrap
+        <ul>
+        <li>strictly speaking, “the union of every line segment joining every pair of points in the shape”</li>
+        </ul>
+        </li>
+        <li>439: possibly to explore coding: a gerrymandering game/program, where you draw districts on a map that tend to lead to certain election results, while stilly satisfing conditions like not having ridiculous shapes
+        <ul>
+        <li>481: hah! there’s already a board game for this: <a href="https://www.calendars.com/shop/mapmaker-the-gerrymandering-game/201900019412" target="_blank">Mapmaker</a></li>
+        </ul>
+        </li>
+        </ul>
+        <h3 id="conclusion-i-prove-a-theorem-and-the-house-expands">Conclusion: I Prove a Theorem and the House Expands</h3>
+        <ul>
+        <li>484: to read: Edwin Abbott’s <em>Flatland</em> (1884)</li>
+        </ul>
+        <div class="dateline">
+            <p>
+                Posted: Jan 14, 2022. Last updated: Jan 14, 2022.
+            </p>
+        </div>
+    </div>
+    <div class="footer-cont">
+        <div class="footer">
+            <h6 class="left">
+                <a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+            </h6>
+        </div>
+    </div>
 </body>
 </html>
