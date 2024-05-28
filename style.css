@@ -75,6 +75,9 @@ samp {
 code {
     background-color: rgb(220,220,200);
 }
+pre > code {
+	background-color: rgb(60,45,35);
+}
 
 audio {
 	max-width: 680px;
