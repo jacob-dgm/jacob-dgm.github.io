@@ -72,7 +72,9 @@ samp {
 	font-weight: bold;
 	background-color: rgb(220,220,200);
 }
-
+code {
+    background-color: rgb(220,220,200);
+}
 
 audio {
 	max-width: 680px;
