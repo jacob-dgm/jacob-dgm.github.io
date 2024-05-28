@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Installing Drupal – Blog – Jacob deGroot-Maggetti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body class="page">
+    <div class="header-cont">
+        <div class="header">
+            <h6 class="right">
+                <a href="/blog">Blog</a> – <a href="/">Jacob deGroot-Maggetti</a>
+            </h6>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="title">
+            Installing Drupal
+        </h2>
+		<h3 class="subtitle">
+			You wouldn't think it would be this complicated to install, but...
+		</h3>
+		<p>I had been working through <a
+		href="https://www.drupal.org/documentation/the-essentials-7"
+		target="_blank">https://www.drupal.org/documentation/the-essentials-7</a>,
+		and was struggling to create a drupal project on my local machine. I
+		tried following <a
+		href="https://www.drupal.org/docs/getting-started/installing-drupal"
+		target="_blank">https://www.drupal.org/docs/getting-started/installing-drupal</a>,
+		but was hoping to be able to start a site that wasn’t the quick-start
+		demo site Drupal provides. It took a bit of poking around, googling
+		error messages, and guesswork, but I managed to assemble this set of
+		instructions that reliably allows me to set up a new Drupal project
+		that’s persistent and independent from other projects on my machine.
+		This is on a Mac Mini running Sonoma 14.3.</p>
+		<ul>
+		<li>I understand you need to have PHP &lt;= 8.1 installed, so best to
+		check that before proceeding: <code>php --version</code></li>
+		<li><code>cd &lt;directory-in-which-you-want-your-project-to-live&gt;</code></li>
+		<li><code>composer create-project drupal/recommended-project &lt;some-directory&gt;</code>
+		- Composer is included with PHP. This command creates a directory called
+		<code>&lt;some-directory&gt;</code>, downloads some necessary files, and
+		puts them in that directory</li>
+		<li><code>cd &lt;some-directory&gt;</code></li>
+		<li><code>php web/core/scripts/drupal install</code>, selecting
+		<code>standard</code> (or, optionally, <code>minimal</code> - you do
+		you) when prompted</li>
+		<li><code>cd web</code> (without moving to this directory, you’ll get an
+		error message along the lines of
+		<code>In Connection.php line 124: SQLSTATE[HY000] [14] unable to open database file</code>
+		when you try to run the next command)</li>
+		<li><code>php core/scripts/drupal server</code></li>
+		<li>now there’s a server running serving your site, and you can visit it
+		in the browser at <code>http://127.0.0.1:8888</code></li>
+		<li>when you want to stop the server,
+		<code>Ctrl</code>-<code>C</code></li>
+		</ul>
+		<p>If you want to start another project, follow the same steps,
+		specifying a different directory for the
+		<code>composer create-project</code> command. To switch back to the
+		first project, navigate to <code>&lt;some-directory&gt;/web</code> and
+		run <code>php core/scripts/drupal server</code>. Changes made on both
+		projects should be independent and persistent.</p>
+        <div class="dateline">
+            <p>
+                Posted: May 28, 2024. Last updated: May 28, 2024.
+            </p>
+        </div>
+    </div>
+    <div class="footer-cont">
+        <div class="footer">
+            <h6 class="left">
+                <a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+            </h6>
+        </div>
+    </div>
+</body>
+</html>
