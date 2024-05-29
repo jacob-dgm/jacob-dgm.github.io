@@ -51,7 +51,21 @@
 		error message along the lines of
 		<code>In Connection.php line 124: SQLSTATE[HY000] [14] unable to open database file</code>
 		when you try to run the next command)</li>
-		<li><code>php core/scripts/drupal server</code></li>
+		<li>
+            <code>php core/scripts/drupal server</code>
+        <ul>
+            <li>
+                If the server hangs after a little while using the above command,
+                you can try running <code>php -S 127.0.0.1:8888 .ht.router.php</code>
+                instead, as suggested <a
+                    href="https://www.drupal.org/project/drupal/issues/3271178"
+                    target="_blank"
+                >
+                    here</a>.
+            </li>
+        </ul>
+        </li>
+
 		<li>now there’s a server running serving your site, and you can visit it
 		in the browser at <code>http://127.0.0.1:8888</code></li>
 		<li>when you want to stop the server,
