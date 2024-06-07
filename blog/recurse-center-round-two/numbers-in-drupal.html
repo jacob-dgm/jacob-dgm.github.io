@@ -65,8 +65,9 @@
         <p>This should account for all the negative integers, plus all of the
         positive integers, plus 0. I’m curious whether this is a large power of
         two. The <a
-        href="https://www.calculatorsoup.com/calculators/math/prime-factors.php">first
-        prime factor calculator Google turned up</a>BLANK cannot handle numbers
+        href="https://www.calculatorsoup.com/calculators/math/prime-factors.php"
+        target="_blank">first prime factorization calculator Google turned up</a>
+        cannot handle numbers
         this big, so let’s check if this is the case ourselves by dividing this
         number by two as many times as we can:</p>
         <pre><code>min_to_max = 18446744073709551616
@@ -77,9 +78,10 @@ while min_to_max &gt; 1:
     if mod != 0:
         print(&quot;not divisible by 2!&quot;)
         break
+
     min_to_max = div
 
-        print(f&quot;{quotients=}, {len(quotients)=}&quot;)</code></pre>
+print(f&quot;{quotients=}, {len(quotients)=}&quot;)</code></pre>
         <p>It outputs:</p>
         <pre><code>quotients=[18446744073709551616, 9223372036854775808, 4611686018427387904, 2305843009213693952, 1152921504606846976, 576460752303423488, 288230376151711744, 144115188075855872, 72057594037927936, 36028797018963968, 18014398509481984, 9007199254740992, 4503599627370496, 2251799813685248, 1125899906842624, 562949953421312, 281474976710656, 140737488355328, 70368744177664, 35184372088832, 17592186044416, 8796093022208, 4398046511104, 2199023255552, 1099511627776, 549755813888, 274877906944, 137438953472, 68719476736, 34359738368, 17179869184, 8589934592, 4294967296, 2147483648, 1073741824, 536870912, 268435456, 134217728, 67108864, 33554432, 16777216, 8388608, 4194304, 2097152, 1048576, 524288, 262144, 131072, 65536, 32768, 16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1], len(quotients)=65</code></pre>
         <p>Just to check we’ve done this right,</p>
