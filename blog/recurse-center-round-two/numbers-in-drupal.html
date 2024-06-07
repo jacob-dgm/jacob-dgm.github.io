@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Installing Drupal – Blog – Jacob deGroot-Maggetti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body class="page">
+    <div class="header-cont">
+        <div class="header">
+            <h6 class="right">
+                <a href="/blog/recurse-center-round-two">Recurse Center: Round Two!</a> – <a href="/blog">Blog</a> – <a href="/">Jacob deGroot-Maggetti</a>
+            </h6>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="title">
+            Numbers in Drupal
+        </h2>
+		<h3 class="subtitle">
+		    ...may not be exactly as you expect them to be...
+		</h3>
+
+        <p>I became curious about numbers in Drupal after entering a number with
+        many decimal places and finding that Drupal gave me an error. I’m
+        keeping this running notebook of things I’ve tried and/or
+        discovered.</p>
+        <p>Let’s start by generating a number that’s sufficiently large, that we
+        can tweak in our explorations. One hundred digits should do! Here’s some
+        Python to generate a hundred-digit number (let’s call it our
+        thundernumber, after the hundred-letter thunderwords in James Joyce’s
+        Finnegan’s Wake):</p>
+        <pre><code>$ python3
+&gt;&gt;&gt; thundernumber = &quot;&quot;
+&gt;&gt;&gt; for x in &quot;1234567890&quot;:
+...     thundernumber += x + &quot;234567890&quot;
+... 
+&gt;&gt;&gt; thundernumber
+&#39;12345678902234567890323456789042345678905234567890
+62345678907234567890823456789092345678900234567890&#39;
+&gt;&gt;&gt; len(thundernumber)
+100</code></pre>
+        <p>Let’s make a new Content type, with a bunch of varied number fields.
+        We’ll call it “Numbers”</p>
+        <p>(I have a screenshot to go here, it will appear eventually!)</p>
+        <p>Let’s get rid of the “body” field and add some number fields.</p>
+        <p>First, let’s create a field called <code>integer</code>. We’ll set
+        its maximum value to our thundernumber and its minimum to its
+        negative</p>
+        <p>We can do this without an error, but when we try to edit the field
+        again, something unusual has happened:</p>
+        <p>(I have a screenshot to go here, it will appear eventually!)</p>
+        <p>The maximum has been changed from our thundernumber to
+        <code>9223372036854775807</code>, and the minimum is now
+        <code>-9223372036854775808</code>.</p>
+        <pre><code>&gt;&gt;&gt; 9223372036854775807 + (-9223372036854775808)
+-1</code></pre>
+        <p>Huh. I’m guessing that Drupal has provided the maximum and minimum
+        values allowable by MySQL, the database running under the hood. If this
+        is the case, how many unique integers can this represent?</p>
+        <pre><code>&gt;&gt;&gt; 9223372036854775808 * 2
+        18446744073709551616</code></pre>
+        <p>This should account for all the negative integers, plus all of the
+        positive integers, plus 0. I’m curious whether this is a large power of
+        two. The <a
+        href="https://www.calculatorsoup.com/calculators/math/prime-factors.php">first
+        prime factor calculator Google turned up</a>BLANK cannot handle numbers
+        this big, so let’s check if this is the case ourselves by dividing this
+        number by two as many times as we can:</p>
+        <pre><code>min_to_max = 18446744073709551616
+quotients = [min_to_max]
+while min_to_max &gt; 1:
+    div, mod = divmod(min_to_max, 2)
+    quotients.append(div)
+    if mod != 0:
+        print(&quot;not divisible by 2!&quot;)
+        break
+    min_to_max = div
+
+        print(f&quot;{quotients=}, {len(quotients)=}&quot;)</code></pre>
+        <p>It outputs:</p>
+        <pre><code>quotients=[18446744073709551616, 9223372036854775808, 4611686018427387904, 2305843009213693952, 1152921504606846976, 576460752303423488, 288230376151711744, 144115188075855872, 72057594037927936, 36028797018963968, 18014398509481984, 9007199254740992, 4503599627370496, 2251799813685248, 1125899906842624, 562949953421312, 281474976710656, 140737488355328, 70368744177664, 35184372088832, 17592186044416, 8796093022208, 4398046511104, 2199023255552, 1099511627776, 549755813888, 274877906944, 137438953472, 68719476736, 34359738368, 17179869184, 8589934592, 4294967296, 2147483648, 1073741824, 536870912, 268435456, 134217728, 67108864, 33554432, 16777216, 8388608, 4194304, 2097152, 1048576, 524288, 262144, 131072, 65536, 32768, 16384, 8192, 4096, 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1], len(quotients)=65</code></pre>
+        <p>Just to check we’ve done this right,</p>
+        <pre><code>&gt;&gt;&gt; 2**64 # quotients includes 1, so we need to raise 2 to the 64
+&gt;&gt;&gt;       # instead of to the 65
+18446744073709551616</code></pre>
+        <p>Okay! So it looks like Drupal’s is using 64-bit signed integers. And
+        a quick google search confirms that <code>9223372036854775807</code> and
+        <code>-9223372036854775808</code> are in fact the maximum and minimum
+        values that can be stored in a 64-bit signed integer. In a perfect
+        world, I feel that Drupal would give you a warning if you tried to enter
+        a number beyond these values, but at least it makes some sort of
+        sense.</p>
+
+        <div class="dateline">
+            <p>
+                Posted: Jun 07, 2024. Last updated: Jun 07, 2024.
+            </p>
+        </div>
+    </div>
+    <div class="footer-cont">
+        <div class="footer">
+            <h6 class="left">
+                <a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+            </h6>
+        </div>
+    </div>
+</body>
+</html>
