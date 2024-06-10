@@ -119,6 +119,63 @@ print(f&quot;{quotients=}, {len(quotients)=}&quot;)</code></pre>
         world, I feel that Drupal would give you a warning if you tried to enter
         a number beyond these values, but at least it makes some sort of
         sense.</p>
+		
+		<div class="hr"></div>
+			
+		<p>Given that there are minimum and maximum values for the minimum and
+		maximum fields themselves, I’m curious about what happens if you make a
+		field without setting a minimum or maximum value, and then try to enter
+		a larger number in that field. The help text on the Maximum field says
+		“leave blank for no maximum”—is there actually no maximum?</p>
+		<p>Let’s create a new Integer field on our Numbers content type. Let’s
+		call it “unlimited integer”</p>
+		<p>
+			If I try to create a new Numbers node and try to enter our
+			thundernumber in the “unlimited integer” field, there are three things I
+			can imagine happening:
+			<ul>
+				<li>Drupal gives us an error message</li>
+				<li>Drupal accepts the value, and the database stores it faithfully</li>
+				<li>Drupal accepts the value, but the database stores the maximum possible value
+				for a 64-bit signed integer</li>
+			</ul>
+		</p>
+		<p>Let’s find out!</p>
+        <figure>
+            <a href="correct-primitive-type.png" target="_blank" class="no-hover"><img class="contain" src="correct-primitive-type.png" alt='Error message, reading "This value should be of the correct primitive type"'></a>
+            <figcaption>
+                Our thundernumber is not of the "correct primitive type"
+            </figcaption>
+        </figure>
+		<p>Huh. So Drupal gives us an error message, but the message doesn’t
+		mention a maximum or minimum value. I’m guessing that, according to
+		MySQL, an integer greater than the largest possible 64-bit signed
+		integer is not of the same “primitive type” as a 64-bit integer, and
+		that Drupal simply passes the MySQL error message along to the user.
+		Understandable, but not ideal!</p>
+		<p>To test the theory that this is a 64-bit signed integer thing, I
+		tried saving <code>9223372036854775807</code> into our “unlimited
+		integer” field - it saves just fine. But
+		<code>9223372036854775808</code>? “This value should be of the correct
+		primitive type.”</p>
+		<p>Further, to test the theory that this is an error message being
+		passed from the database, we should check what happens when a user
+		enters a value beyond the configured minimum and maximum. If we create
+		an integer field (let’s call it “million integer”), with a maximum of
+		1000000, what happens when we try to save a larger number into that
+		field? Do we get the same kind of error message?</p>
+        <figure>
+            <a href="million-and-one.png" target="_blank" class="no-hover"><img class="contain" src="million-and-one.png" alt='Error message, reading "Please select a value that is no more than 1000000."'></a>
+            <figcaption>
+                "Please select a value that is no more than 1000000."
+            </figcaption>
+        </figure>
+		<p>So that settles it. Drupal catches values that don’t fit within the
+		minimum-maximum range and displays its own little pop-up error messages when it does.
+		But if there is no minimum or maximum set, it will attempt to send any number to
+		the database. And when the database complains that some number cannot be
+		saved into a 64-bit signed integer field, Drupal simply echoes the
+		database’s complaint.</p>
 
         <div class="dateline">
             <p>
