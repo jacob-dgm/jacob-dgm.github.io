@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Installing Drupal – Blog – Jacob deGroot-Maggetti</title>
+    <title>Numbers in Drupal – Blog – Jacob deGroot-Maggetti</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/style.css">
@@ -27,6 +27,9 @@
         many decimal places and finding that Drupal gave me an error. I’m
         keeping this running notebook of things I’ve tried and/or
         discovered.</p>
+
+        <h3>Thundernumber</h3>
+
         <p>Let’s start by generating a number that’s sufficiently large, that we
         can tweak in our explorations. One hundred digits should do! Here’s some
         Python to generate a hundred-digit number (let’s call it our
@@ -42,16 +45,37 @@
 62345678907234567890823456789092345678900234567890&#39;
 &gt;&gt;&gt; len(thundernumber)
 100</code></pre>
-        <p>Let’s make a new Content type, with a bunch of varied number fields.
-        We’ll call it “Numbers”</p>
-        <p>(I have a screenshot to go here, it will appear eventually!)</p>
+
+        <h3>The Mystery of the Minimum and Maximum Integer Values</h3>
+
+        <p>Let’s make a new Content Type, with a bunch of varied number fields.
+        We’ll call it “Numbers”:</p>
+        <figure>
+            <a href="add-content-type.png" target="_blank" class="no-hover"><img class="contain" src="add-content-type.png" alt="A new Content Type being created"></a>
+            <figcaption>
+                Let's make a new Content Type
+            </figcaption>
+        </figure>
         <p>Let’s get rid of the “body” field and add some number fields.</p>
+
+        <figure>
+            <a href="delete-field.png" target="_blank" class="no-hover"><img class="contain" src="delete-field.png" alt='Deleting the "Body" field from our Numbers Content Type'></a>
+            <figcaption>
+                Let's get rid of the "Body" field
+            </figcaption>
+        </figure>
+
         <p>First, let’s create a field called <code>integer</code>. We’ll set
         its maximum value to our thundernumber and its minimum to its
         negative</p>
         <p>We can do this without an error, but when we try to edit the field
         again, something unusual has happened:</p>
-        <p>(I have a screenshot to go here, it will appear eventually!)</p>
+        <figure>
+            <a href="minimum-maximum.png" target="_blank" class="no-hover"><img class="contain" src="minimum-maximum.png" alt="A new Content Type being created"></a>
+            <figcaption>
+                New minimum and maximum values have appeared
+            </figcaption>
+        </figure>
         <p>The maximum has been changed from our thundernumber to
         <code>9223372036854775807</code>, and the minimum is now
         <code>-9223372036854775808</code>.</p>
