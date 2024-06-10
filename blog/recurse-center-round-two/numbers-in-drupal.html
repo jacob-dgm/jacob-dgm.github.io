@@ -112,7 +112,7 @@ print(f&quot;{quotients=}, {len(quotients)=}&quot;)</code></pre>
         <pre><code>&gt;&gt;&gt; 2**64 # quotients includes 1, so we need to raise 2 to the 64
 &gt;&gt;&gt;       # instead of to the 65
 18446744073709551616</code></pre>
-        <p>Okay! So it looks like Drupal’s is using 64-bit signed integers. And
+        <p>Okay! So it looks like Drupal is using 64-bit signed integers. And
         a quick google search confirms that <code>9223372036854775807</code> and
         <code>-9223372036854775808</code> are in fact the maximum and minimum
         values that can be stored in a 64-bit signed integer. In a perfect
