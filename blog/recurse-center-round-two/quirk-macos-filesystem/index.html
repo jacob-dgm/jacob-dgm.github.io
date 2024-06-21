@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>A Quirk in the MacOS Filesystem – Blog – Jacob deGroot-Maggetti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+
+<body class="page">
+    <div class="header-cont">
+        <div class="header">
+            <h6 class="right">
+                <a href="/blog/recurse-center-round-two">Recurse Center: Round Two!</a> – <a href="/blog">Blog</a> – <a href="/">Jacob deGroot-Maggetti</a>
+            </h6>
+        </div>
+    </div>
+    <div class="content">
+        <h2 class="title">
+            A Quirk in the MacOS Filesystem
+        </h2>
+		<p>There’s a weird thing with files in MacOS: while you’re able to save
+		a file with a filename that uses uppercase and lowercase characters, it
+		seems that the filesystem treats uppercase and lowercase letters as
+		equivalent:</p>
+		<pre><code>$ ls                        # behold! there is nothing in this folder
+$ touch File.txt            # let&#39;s make a file called File.txt
+$ ls                        # there it is!
+File.txt
+$ mv File.txt file.txt      # let&#39;s try to lowercase the filename
+$ ls                        # now it&#39;s lowercase!
+file.txt
+$ cp file.txt File.txt      # and yet the two filenames cannot coexist
+cp: File.txt and file.txt are identical (not copied).
+$
+$
+$ cp file.txt duplicate.txt # let's try duplicating the file...
+$ ls                        # behold! there are two files in this folder
+duplicate.txt file.txt
+$ mv duplicate.txt File.txt # let's move the duplicate onto the old file
+$ ls                        # behold! there is now one file in this folder
+file.txt
+$                           # and for some reason, it's the lowercase version?!
+$
+$
+$ echo "the contents of file.txt" > file.txt
+$ echo "the contents of newfile.txt" > newfile.txt
+$ ls                        # let's just make sure they're both there. good!
+file.txt    newfile.txt
+$ mv newfile.txt File.txt
+$ ls
+file.txt
+$ cat file.txt
+the contents of newfile.txt
+$
+$
+$ mv file.txt File.txt
+$ echo "the contents of thirdfile.txt" > thirdfile.txt
+$ ls
+File.txt      thirdfile.txt
+$ mv thirdfile.txt file.txt
+$ ls
+File.txt
+$ cat File.txt
+the contents of thirdfile.txt
+</code></pre>
+		<p>So it seems that in the MacOS terminal, when you try to create a new file with the same name as an existing file (case-insensitive), terminal treats the two files as the same.
+			And when capitalization differs, terminal goes with the capitalization of the file that was there in the first place.</p>
+		<p>Finder, at least, makes it difficult to overwrite the contents of one file with another when filenames collide in this way:</p>
+	    <figure>
+	        <a href="1-file-txt.png" target="_blank" class="no-hover"><img class="contain" src="1-file-txt.png" alt='A screenshot of Finder, showing a single file, file.txt'></a>
+	        <figcaption>
+	            Here's <code>file.txt</code>
+	        </figcaption>
+	    </figure>
+	    <figure>
+	        <a href="2-file-copy-txt.png" target="_blank" class="no-hover"><img class="contain" src="2-file-copy-txt.png" alt='A screenshot of Finder, showing two files, file copy.txt and file.txt'></a>
+	        <figcaption>
+	            Let's make a copy of it...
+	        </figcaption>
+	    </figure>
+	    <figure>
+	        <a href="3-uppercase-file-txt.png" target="_blank" class="no-hover"><img class="contain" src="3-uppercase-file-txt.png" alt='A screenshot of Finder, showing file copy.txt being renamed to File.txt'></a>
+	        <figcaption>
+	            ...and try to name the copy <code>File.txt</code>
+	        </figcaption>
+	    </figure>
+	    <figure>
+	        <a href="4-already-taken.png" target="_blank" class="no-hover"><img class="contain" src="4-already-taken.png" alt='A screenshot of Finder and an error message, reading "The name "File" with extension ".txt" is already taken. Please choose a different name."'></a>
+	        <figcaption>
+	            It doesn't work!
+	        </figcaption>
+	    </figure>
+		<p>This raises a few questions, most notably, what’s going on under the
+		hood to allow filenames with different capitalizations to be displayed
+		and persisted, even as <code>something.txt</code> and
+		<code>SoMeThInG.txt</code> are, evidently in some fundamental way,
+		equivalent?</p>
+		<p>It also has some ramifications for tools like Git, which is how I
+		first came across this quirk. More on this soon!</p>
+        <div class="dateline">
+            <p>
+                Posted: Jun 21, 2024. Last updated: Jun 21, 2024.
+            </p>
+        </div>
+    </div>
+    <div class="footer-cont">
+        <div class="footer">
+            <h6 class="left">
+                <a href="/">Home</a> – <a href="/about">About</a> – <a href="/music" target="_blank">Music</a> – <a href="/blog">Blog</a> – <a href="/bookshelf">Bookshelf</a> – <a href="/etc">Etc.</a> – <a href="/contact">Contact</a>
+            </h6>
+        </div>
+    </div>
+</body>
+</html>
